@@ -14,6 +14,15 @@
 		847271152000C4C600217FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847271142000C4C600217FA8 /* Assets.xcassets */; };
 		847271182000C4C600217FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847271162000C4C600217FA8 /* LaunchScreen.storyboard */; };
 		847271232000C4C600217FA8 /* StarWars_ViperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271222000C4C600217FA8 /* StarWars_ViperTests.swift */; };
+		8472712E2000C55B00217FA8 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472712D2000C55B00217FA8 /* Networking.swift */; };
+		847271312000C70D00217FA8 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271302000C70D00217FA8 /* People.swift */; };
+		847271332000C72800217FA8 /* Planets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271322000C72800217FA8 /* Planets.swift */; };
+		847271352000C74D00217FA8 /* Starships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271342000C74D00217FA8 /* Starships.swift */; };
+		847271372000C76300217FA8 /* Vehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271362000C76300217FA8 /* Vehicles.swift */; };
+		847271392000C77900217FA8 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271382000C77900217FA8 /* Films.swift */; };
+		8472713B2000C79800217FA8 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472713A2000C79800217FA8 /* Species.swift */; };
+		F09C037DE94006445598C2E3 /* Pods_StarWars_ViperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */; };
+		FDC5757CB98E34E5F9FB669C /* Pods_StarWars_Viper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B33A108F7166D8A723D447D /* Pods-StarWars Viper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars Viper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StarWars Viper/Pods-StarWars Viper.debug.xcconfig"; sourceTree = "<group>"; };
+		1ADC5D6BBEE7B15DB8B7CDCA /* Pods-StarWars ViperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars ViperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StarWars ViperTests/Pods-StarWars ViperTests.release.xcconfig"; sourceTree = "<group>"; };
+		2177EA9AF715293F2A4CF927 /* Pods-StarWars Viper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars Viper.release.xcconfig"; path = "Pods/Target Support Files/Pods-StarWars Viper/Pods-StarWars Viper.release.xcconfig"; sourceTree = "<group>"; };
+		2B9A6350B12CE2BC1A229405 /* Pods-StarWars ViperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWars ViperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StarWars ViperTests/Pods-StarWars ViperTests.debug.xcconfig"; sourceTree = "<group>"; };
 		847271072000C4C600217FA8 /* StarWars Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StarWars Viper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8472710A2000C4C600217FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8472710C2000C4C600217FA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +51,15 @@
 		8472711E2000C4C600217FA8 /* StarWars ViperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StarWars ViperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		847271222000C4C600217FA8 /* StarWars_ViperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWars_ViperTests.swift; sourceTree = "<group>"; };
 		847271242000C4C600217FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8472712D2000C55B00217FA8 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		847271302000C70D00217FA8 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		847271322000C72800217FA8 /* Planets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planets.swift; sourceTree = "<group>"; };
+		847271342000C74D00217FA8 /* Starships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starships.swift; sourceTree = "<group>"; };
+		847271362000C76300217FA8 /* Vehicles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicles.swift; sourceTree = "<group>"; };
+		847271382000C77900217FA8 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
+		8472713A2000C79800217FA8 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_ViperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_Viper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC5757CB98E34E5F9FB669C /* Pods_StarWars_Viper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +75,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09C037DE94006445598C2E3 /* Pods_StarWars_ViperTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F7718A98B4F0154C80609B8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B33A108F7166D8A723D447D /* Pods-StarWars Viper.debug.xcconfig */,
+				2177EA9AF715293F2A4CF927 /* Pods-StarWars Viper.release.xcconfig */,
+				2B9A6350B12CE2BC1A229405 /* Pods-StarWars ViperTests.debug.xcconfig */,
+				1ADC5D6BBEE7B15DB8B7CDCA /* Pods-StarWars ViperTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		847270FE2000C4C500217FA8 = {
 			isa = PBXGroup;
 			children = (
 				847271092000C4C600217FA8 /* StarWars Viper */,
 				847271212000C4C600217FA8 /* StarWars ViperTests */,
 				847271082000C4C600217FA8 /* Products */,
+				1F7718A98B4F0154C80609B8 /* Pods */,
+				DC79721DA3B9D1BD323C2515 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +116,7 @@
 		847271092000C4C600217FA8 /* StarWars Viper */ = {
 			isa = PBXGroup;
 			children = (
+				8472712F2000C70000217FA8 /* Model */,
 				8472710A2000C4C600217FA8 /* AppDelegate.swift */,
 				8472710C2000C4C600217FA8 /* ViewController.swift */,
 				8472710E2000C4C600217FA8 /* Main.storyboard */,
@@ -86,6 +124,7 @@
 				847271162000C4C600217FA8 /* LaunchScreen.storyboard */,
 				847271192000C4C600217FA8 /* Info.plist */,
 				847271112000C4C600217FA8 /* StarWars_Viper.xcdatamodeld */,
+				8472712D2000C55B00217FA8 /* Networking.swift */,
 			);
 			path = "StarWars Viper";
 			sourceTree = "<group>";
@@ -99,6 +138,28 @@
 			path = "StarWars ViperTests";
 			sourceTree = "<group>";
 		};
+		8472712F2000C70000217FA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				847271302000C70D00217FA8 /* People.swift */,
+				847271322000C72800217FA8 /* Planets.swift */,
+				847271342000C74D00217FA8 /* Starships.swift */,
+				847271362000C76300217FA8 /* Vehicles.swift */,
+				847271382000C77900217FA8 /* Films.swift */,
+				8472713A2000C79800217FA8 /* Species.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC79721DA3B9D1BD323C2515 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */,
+				850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 847271272000C4C600217FA8 /* Build configuration list for PBXNativeTarget "StarWars Viper" */;
 			buildPhases = (
+				2DB7EBA8DCBF5B47D8F6486A /* [CP] Check Pods Manifest.lock */,
 				847271032000C4C600217FA8 /* Sources */,
 				847271042000C4C600217FA8 /* Frameworks */,
 				847271052000C4C600217FA8 /* Resources */,
+				C5FF53EB06CCDE46F0F34729 /* [CP] Embed Pods Frameworks */,
+				692986D52E3AAB2F36F6D226 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8472712A2000C4C600217FA8 /* Build configuration list for PBXNativeTarget "StarWars ViperTests" */;
 			buildPhases = (
+				ADC25B7641595226FBA55B76 /* [CP] Check Pods Manifest.lock */,
 				8472711A2000C4C600217FA8 /* Sources */,
 				8472711B2000C4C600217FA8 /* Frameworks */,
 				8472711C2000C4C600217FA8 /* Resources */,
+				06AA9F2DAF9D4A6D7B147C13 /* [CP] Embed Pods Frameworks */,
+				860ED5ABFE2637655FCDF1E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,6 +264,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06AA9F2DAF9D4A6D7B147C13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StarWars ViperTests/Pods-StarWars ViperTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DB7EBA8DCBF5B47D8F6486A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StarWars Viper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		692986D52E3AAB2F36F6D226 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StarWars Viper/Pods-StarWars Viper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		860ED5ABFE2637655FCDF1E5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StarWars ViperTests/Pods-StarWars ViperTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADC25B7641595226FBA55B76 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StarWars ViperTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5FF53EB06CCDE46F0F34729 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StarWars Viper/Pods-StarWars Viper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StarWars Viper/Pods-StarWars Viper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		847271032000C4C600217FA8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -205,6 +382,13 @@
 				8472710D2000C4C600217FA8 /* ViewController.swift in Sources */,
 				847271132000C4C600217FA8 /* StarWars_Viper.xcdatamodeld in Sources */,
 				8472710B2000C4C600217FA8 /* AppDelegate.swift in Sources */,
+				8472712E2000C55B00217FA8 /* Networking.swift in Sources */,
+				847271372000C76300217FA8 /* Vehicles.swift in Sources */,
+				847271392000C77900217FA8 /* Films.swift in Sources */,
+				847271312000C70D00217FA8 /* People.swift in Sources */,
+				847271332000C72800217FA8 /* Planets.swift in Sources */,
+				8472713B2000C79800217FA8 /* Species.swift in Sources */,
+				847271352000C74D00217FA8 /* Starships.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +539,7 @@
 		};
 		847271282000C4C600217FA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B33A108F7166D8A723D447D /* Pods-StarWars Viper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -369,6 +554,7 @@
 		};
 		847271292000C4C600217FA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2177EA9AF715293F2A4CF927 /* Pods-StarWars Viper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -383,6 +569,7 @@
 		};
 		8472712B2000C4C600217FA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B9A6350B12CE2BC1A229405 /* Pods-StarWars ViperTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -399,6 +586,7 @@
 		};
 		8472712C2000C4C600217FA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ADC5D6BBEE7B15DB8B7CDCA /* Pods-StarWars ViperTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
