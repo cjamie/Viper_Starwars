@@ -21,6 +21,12 @@
 		847271372000C76300217FA8 /* Vehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271362000C76300217FA8 /* Vehicles.swift */; };
 		847271392000C77900217FA8 /* Films.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271382000C77900217FA8 /* Films.swift */; };
 		8472713B2000C79800217FA8 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472713A2000C79800217FA8 /* Species.swift */; };
+		8472713D2000D8BD00217FA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472713C2000D8BD00217FA8 /* Constants.swift */; };
+		847271442001B2FF00217FA8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271432001B2FF00217FA8 /* Errors.swift */; };
+		847271472001DF1800217FA8 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271462001DF1800217FA8 /* Presenter.swift */; };
+		847271492001F52500217FA8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271482001F52500217FA8 /* DetailViewController.swift */; };
+		8472714B2001F77E00217FA8 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472714A2001F77E00217FA8 /* Interactor.swift */; };
+		8472714D2001FEB400217FA8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472714C2001FEB400217FA8 /* Router.swift */; };
 		F09C037DE94006445598C2E3 /* Pods_StarWars_ViperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */; };
 		FDC5757CB98E34E5F9FB669C /* Pods_StarWars_Viper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +64,12 @@
 		847271362000C76300217FA8 /* Vehicles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicles.swift; sourceTree = "<group>"; };
 		847271382000C77900217FA8 /* Films.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Films.swift; sourceTree = "<group>"; };
 		8472713A2000C79800217FA8 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		8472713C2000D8BD00217FA8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		847271432001B2FF00217FA8 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		847271462001DF1800217FA8 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		847271482001F52500217FA8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8472714A2001F77E00217FA8 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		8472714C2001FEB400217FA8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_ViperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_Viper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,15 +128,19 @@
 		847271092000C4C600217FA8 /* StarWars Viper */ = {
 			isa = PBXGroup;
 			children = (
-				8472712F2000C70000217FA8 /* Model */,
+				847271452001BA0000217FA8 /* Entity */,
+				847271422001B2AC00217FA8 /* Common */,
+				847271412001AEFF00217FA8 /* Presenter */,
+				847271402001AEE300217FA8 /* Interacter */,
+				8472713F2001AEDB00217FA8 /* View */,
+				8472713E2001AE4400217FA8 /* Router */,
 				8472710A2000C4C600217FA8 /* AppDelegate.swift */,
-				8472710C2000C4C600217FA8 /* ViewController.swift */,
+				8472712D2000C55B00217FA8 /* Networking.swift */,
 				8472710E2000C4C600217FA8 /* Main.storyboard */,
 				847271142000C4C600217FA8 /* Assets.xcassets */,
 				847271162000C4C600217FA8 /* LaunchScreen.storyboard */,
 				847271192000C4C600217FA8 /* Info.plist */,
 				847271112000C4C600217FA8 /* StarWars_Viper.xcdatamodeld */,
-				8472712D2000C55B00217FA8 /* Networking.swift */,
 			);
 			path = "StarWars Viper";
 			sourceTree = "<group>";
@@ -138,7 +154,49 @@
 			path = "StarWars ViperTests";
 			sourceTree = "<group>";
 		};
-		8472712F2000C70000217FA8 /* Model */ = {
+		8472713E2001AE4400217FA8 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8472714C2001FEB400217FA8 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8472713F2001AEDB00217FA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8472710C2000C4C600217FA8 /* ViewController.swift */,
+				847271482001F52500217FA8 /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		847271402001AEE300217FA8 /* Interacter */ = {
+			isa = PBXGroup;
+			children = (
+				8472714A2001F77E00217FA8 /* Interactor.swift */,
+			);
+			path = Interacter;
+			sourceTree = "<group>";
+		};
+		847271412001AEFF00217FA8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				847271462001DF1800217FA8 /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		847271422001B2AC00217FA8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8472713C2000D8BD00217FA8 /* Constants.swift */,
+				847271432001B2FF00217FA8 /* Errors.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		847271452001BA0000217FA8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				847271302000C70D00217FA8 /* People.swift */,
@@ -148,7 +206,7 @@
 				847271382000C77900217FA8 /* Films.swift */,
 				8472713A2000C79800217FA8 /* Species.swift */,
 			);
-			path = Model;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		DC79721DA3B9D1BD323C2515 /* Frameworks */ = {
@@ -380,15 +438,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8472710D2000C4C600217FA8 /* ViewController.swift in Sources */,
+				8472714B2001F77E00217FA8 /* Interactor.swift in Sources */,
+				8472713D2000D8BD00217FA8 /* Constants.swift in Sources */,
 				847271132000C4C600217FA8 /* StarWars_Viper.xcdatamodeld in Sources */,
 				8472710B2000C4C600217FA8 /* AppDelegate.swift in Sources */,
+				847271442001B2FF00217FA8 /* Errors.swift in Sources */,
 				8472712E2000C55B00217FA8 /* Networking.swift in Sources */,
 				847271372000C76300217FA8 /* Vehicles.swift in Sources */,
+				8472714D2001FEB400217FA8 /* Router.swift in Sources */,
 				847271392000C77900217FA8 /* Films.swift in Sources */,
 				847271312000C70D00217FA8 /* People.swift in Sources */,
 				847271332000C72800217FA8 /* Planets.swift in Sources */,
+				847271472001DF1800217FA8 /* Presenter.swift in Sources */,
 				8472713B2000C79800217FA8 /* Species.swift in Sources */,
 				847271352000C74D00217FA8 /* Starships.swift in Sources */,
+				847271492001F52500217FA8 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

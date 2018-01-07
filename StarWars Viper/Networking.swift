@@ -9,231 +9,228 @@
 import Foundation
 import Alamofire
 
-enum NetworkError:Error{
-    case noResponse
-    case responseError(Int)
-    case noData
-    case couldNotParseData
+
+protocol NetworkProtocol{
+    func downloadType(completion: @escaping(RetStructType?, Error?)->())
+}
+
+//associative type enum
+enum StructType{
+    case People
+    case Planets
+    case Starships
+    case Vehicles
+    case Films
+    case Species
+    
+    case Person(name:String)
+    case Planet(name:String)
+    case Starship(name:String)
+    case Vehicle(name:String)
+    case Film(title:String)
+    case Specie(name:String)
+}
+
+enum RetStructType{
+    case People1(People)
+    case Planets1(Planets)
+    case Starships1(Starships)
+    case Vehicles1(Vehicles)
+    case Films1(Films)
+    case Species1(Species)
+    
+    
+    //this simplifies the downloadOwnjects2 function
+    static func getMyself(data:Data)->RetStructType?{
+        if let tempDecode = try? JSONDecoder().decode(People.self, from: data){
+            return RetStructType.People1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Planets.self, from: data){
+            return RetStructType.Planets1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Starships.self, from: data){
+            return RetStructType.Starships1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Vehicles.self, from: data){
+            return RetStructType.Vehicles1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Films.self, from: data){
+            return RetStructType.Films1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Species.self, from: data){
+            return RetStructType.Species1(tempDecode)
+        }else{
+            return nil
+        }
+    }
 }
 
 
 class Networking {
-    //iterates through your people and returns array of Person (sub)
-    static func getPeople(byPage page: String, completion: @escaping (People?, Error?)->()){
-        
-        guard let peopleURL = URL(string: page) else {return}
-        
-        Alamofire.request(peopleURL).responseJSON {
+    //NOTE: this does not deserialize the incoming data.-- returns the "plural" structs
+    static func downloadObjects(byPage:String, completion: @escaping(RetStructType?, Error?)->() ){
+        guard let tempURL = URL(string: byPage) else {return}
+        Alamofire.request(tempURL).responseJSON {
             (dataResponse) in
-            print("in Alamofire getPeople completionHandler")
-            guard let data = dataResponse.data else{ return }
+            guard dataResponse.error == nil else {
+                completion(nil, dataResponse.error)
+                print(dataResponse.error!.localizedDescription)
+                return
+            }
+            guard let tempResp = dataResponse.response else {
+                completion(nil, NetworkError.noResponse)
+                return
+            }
+            guard tempResp.statusCode == 200 else{
+                completion(nil, NetworkError.responseError(tempResp.statusCode))
+                return
+            }
+            guard let data = dataResponse.data else{
+                completion(nil, NetworkError.noData)
+                return
+            }
             
-            do{
-                let temp = try JSONDecoder().decode(People.self, from: data)
-                //                print(temp.results)
-                completion(temp, nil)
-            }catch let error{
-                print("Serialziation Error")
-                print(error)
+            if let tempDecode = try? JSONDecoder().decode(People.self, from: data){
+                completion(RetStructType.People1(tempDecode),nil)
+            }else if let tempDecode = try? JSONDecoder().decode(Planets.self, from: data){
+                completion(RetStructType.Planets1(tempDecode),nil)
+            }else if let tempDecode = try? JSONDecoder().decode(Starships.self, from: data){
+                completion(RetStructType.Starships1(tempDecode),nil)
+            }else if let tempDecode = try? JSONDecoder().decode(Vehicles.self, from: data){
+                completion(RetStructType.Vehicles1(tempDecode),nil)
+            }else if let tempDecode = try? JSONDecoder().decode(Films.self, from: data){
+                completion(RetStructType.Films1(tempDecode),nil)
+            }else if let tempDecode = try? JSONDecoder().decode(Species.self, from: data){
+                completion(RetStructType.Species1(tempDecode),nil)
+            }else{
+                completion(nil, NetworkError.couldNotParseData)
             }
         }
     }
     
-    //this will return a Person and an image of the person (or an error)
-    //    static func getPerson( completion: @escaping(Person?, Error? )->Void) {
-    //        guard let peopleURL = URL(string: "https://swapi.co/api/people/1/") else {return}
-    //        Alamofire.request(peopleURL).responseJSON {
-    //            (dataResponse) in
-    //            print("in Alamofire completionHandler")
-    //            guard let data = dataResponse.data else{ return }
-    //            do{
-    //                let temp = try JSONDecoder().decode(Person.self, from: data)
-    ////                let toReturn = NetworkReturn.person(temp)
-    //                completion(temp, nil)
-    //            }catch let error{
-    //                print("Serialziation Error")
-    //                print(error)
-    //            }
-    //        }
-    //    }
-    
-    //takes a personName and returns Image via completionhandler
-    static func downloadPersonImage(byName url:String,completion:@escaping(UIImage?,Error?)->()){
-        let myUrl = "https://raw.githubusercontent.com/sbassett1/swImages/master/\(url.replacingOccurrences(of: "/", with: "")).png"
-        print(myUrl)
-        
-        guard let uurl = URL(string:myUrl) else {return}
-        
-        Alamofire.request(uurl).response { (dataResponse) in
-            guard dataResponse.error == nil else {
-                completion(nil, dataResponse.error)
-                print(dataResponse.error!.localizedDescription)
-                return
-            }
-            guard let data = dataResponse.data else {
-                completion(nil, NetworkError.noData)
-                return
-            }
-            guard let image = UIImage(data:data) else {return}
-            print("returning img")
-            completion(image, nil)
-        }
-    }
-    
-    static func downloadVehicleImage(byName url:String,completion:@escaping(UIImage?,Error?)->()){
-        let myUrl = "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/Vehicles/\(url.replacingOccurrences(of: "/", with: "")).png"
-        print(myUrl)
-        
-        guard let uurl = URL(string:myUrl) else {return}
-        
-        Alamofire.request(uurl).response { (dataResponse) in
-            guard dataResponse.error == nil else {
-                completion(nil, dataResponse.error)
-                print(dataResponse.error!.localizedDescription)
-                return
-            }
-            guard let data = dataResponse.data else {
-                completion(nil, NetworkError.noData)
-                return
-            }
-            guard let image = UIImage(data:data) else {return}
-            print("returning img")
-            completion(image, nil)
-        }
-    }
-    
-    
-    
-    static func downloadStarshipImage(byName url:String,completion:@escaping(UIImage?,Error?)->()){
-        let myUrl = "https://raw.githubusercontent.com/Zephzz/sada/master/temp/Starships/\(url.replacingOccurrences(of: "/", with: "")).png"
-        print(myUrl)
-        guard let uurl = URL(string:myUrl) else {return}
-        
-        Alamofire.request(uurl).response { (dataResponse) in
-            guard dataResponse.error == nil else {
-                completion(nil, dataResponse.error)
-                print(dataResponse.error!.localizedDescription)
-                return
-            }
-            guard let data = dataResponse.data else {
-                completion(nil, NetworkError.noData)
-                return
-            }
-            guard let image = UIImage(data:data) else {return}
-            print("returning img")
-            completion(image, nil)
-        }
-    }
-    
-    
-    static func downloadSpecieImage(byName url:String,completion:@escaping(UIImage?,Error?)->()){
-        let myUrl =
-        "https://raw.githubusercontent.com/Zephzz/StarwarsSpeciesImages/master/Species/\(url.replacingOccurrences(of: "/", with: "")).png"
-        print(myUrl)
-        guard let uurl = URL(string:myUrl) else {return}
-        
-        Alamofire.request(uurl).response { (dataResponse) in
-            guard dataResponse.error == nil else {
-                completion(nil, dataResponse.error)
-                print(dataResponse.error!.localizedDescription)
-                return
-            }
-            guard let data = dataResponse.data else {
-                completion(nil, NetworkError.noData)
-                return
-            }
-            guard let image = UIImage(data:data) else {return}
-            print("returning img")
-            completion(image, nil)
-        }
-    }
-    
-    //TODO: update for change link
-    static func downloadFilmImage(byName filmTitle:String,completion:@escaping(UIImage?,Error?)->()){
-        let myUrl =
-        "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/FilmPosters/\(filmTitle.replacingOccurrences(of: "/", with: "")).png"
-        print(myUrl)
-        guard let uurl = URL(string:myUrl) else {return}
-        
-        Alamofire.request(uurl).response { (dataResponse) in
-            guard dataResponse.error == nil else {
-                completion(nil, dataResponse.error)
-                print(dataResponse.error!.localizedDescription)
-                return
-            }
-            guard let data = dataResponse.data else {
-                completion(nil, NetworkError.noData)
-                return
-            }
-            guard let image = UIImage(data:data) else {return}
-            completion(image, nil)
-        }
-    }
-    
-    
-    static func getPlanets(byPage: String, completion: @escaping (Planets?, Error?)->()) {
+    //this version will take in an enum parameter
+    static func downloadObjects2(byPage:String, completion: @escaping(RetStructType?, Error?)->() ){
         guard let tempURL = URL(string: byPage) else {return}
         Alamofire.request(tempURL).responseJSON {
             (dataResponse) in
-            guard let data = dataResponse.data else{ return }
-            do{
-                let temp = try JSONDecoder().decode(Planets.self, from: data)
-                completion(temp,nil)
-            }catch let error{
-                print("Serialziation Error")
+            guard dataResponse.error == nil else {
+                completion(nil, dataResponse.error)
+                print(dataResponse.error!.localizedDescription)
+                return
+            }
+            guard let tempResp = dataResponse.response else {
+                completion(nil, NetworkError.noResponse)
+                return
+            }
+            guard tempResp.statusCode == 200 else{
+                completion(nil, NetworkError.responseError(tempResp.statusCode))
+                return
+            }
+            guard let data = dataResponse.data else{
+                completion(nil, NetworkError.noData)
+                return
+            }
+            guard let tempRet = RetStructType.getMyself(data: data) else{
+                completion(nil, NetworkError.couldNotParseData)
+                return
+            }
+            completion(tempRet, nil)
+        }
+    }
+    
+    static func downloadObjects3(byPage:String, type:StructType, completion: @escaping(RetStructType?, Error?)->() ){
+        guard let tempURL = URL(string: byPage) else {return}
+        Alamofire.request(tempURL).responseJSON {
+            (dataResponse) in
+            guard dataResponse.error == nil else {
+                completion(nil, dataResponse.error)
+                print(dataResponse.error!.localizedDescription)
+                return
+            }
+            guard let tempResp = dataResponse.response else {
+                completion(nil, NetworkError.noResponse)
+                return
+            }
+            guard tempResp.statusCode == 200 else{
+                completion(nil, NetworkError.responseError(tempResp.statusCode))
+                return
+            }
+            guard let data = dataResponse.data else{
+                completion(nil, NetworkError.noData)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            switch type{
+            case .Films:
+                if let tempDecode = try? decoder.decode(Films.self, from: data){
+                    completion(RetStructType.Films1(tempDecode),nil)}
+            case .People:
+                if let tempDecode = try? decoder.decode(People.self, from: data){
+                    completion(RetStructType.People1(tempDecode),nil)}
+            case .Planets:
+                if let tempDecode = try? decoder.decode(Planets.self, from: data){
+                    completion(RetStructType.Planets1(tempDecode),nil)}
+            case .Species:
+                if let tempDecode = try? decoder.decode(Species.self, from: data){
+                    completion(RetStructType.Species1(tempDecode),nil)}
+            case .Starships:
+                if let tempDecode = try? decoder.decode(Starships.self, from: data){
+                    completion(RetStructType.Starships1(tempDecode),nil)}
+            case .Vehicles:
+                if let tempDecode = try? decoder.decode(Vehicles.self, from: data){
+                    completion(RetStructType.Vehicles1(tempDecode),nil)}
+            default:
+                break
+            }
+            completion(nil, NetworkError.couldNotParseData)
+
+        }
+    }
+    
+    
+    
+    static func downloadImage(type:StructType, completion: @escaping(UIImage?, Error?)->() ){
+        var tempURL = String()
+        switch type{
+        case .Film(title: let x):
+            tempURL = "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/FilmPosters/\(x.replacingOccurrences(of: "/", with: "")).png"
+        case .Person(name: let x):
+            tempURL = "https://raw.githubusercontent.com/sbassett1/swImages/master/\(x.replacingOccurrences(of: "/", with: "")).png"
+        case .Specie(name: let x):
+            tempURL = "https://raw.githubusercontent.com/Zephzz/StarwarsSpeciesImages/master/Species/\(x.replacingOccurrences(of: "/", with: "")).png"
+        case .Starship(name: let x):
+            tempURL = "https://raw.githubusercontent.com/Zephzz/sada/master/temp/Starships/\(x.replacingOccurrences(of: "/", with: "")).png"
+        case .Vehicle(name: let x):
+            tempURL = "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/Vehicles/\(x.replacingOccurrences(of: "/", with: "")).png"
+        default:
+            return
+        }
+        print(tempURL)
+        
+        
+        guard let uurl = URL(string: tempURL) else {return}
+        let imageSession = URLSession.shared
+        imageSession.invalidateAndCancel()
+        imageSession.dataTask(with: uurl) {
+            (data, response, error) in
+            guard error == nil else{
                 completion(nil, error)
+                return
             }
-        }
-    }
-    
-    //returns 10 at a time
-    static func getStarships(byPage:String, completion: @escaping (Starships?, Error?)->()) {
-        guard let tempURL = URL(string: byPage) else {return}
-        Alamofire.request(tempURL).responseJSON {
-            (dataResponse) in
-            print("in completionHandler")
-            guard let data = dataResponse.data else{ return }
-            do{
-                let temp = try JSONDecoder().decode(Starships.self, from: data)
-                completion(temp,nil)
-            }catch let error{
-                print("Serialziation Error")
-                completion(nil,error)
+            guard let responseTemp = response as? HTTPURLResponse else{return}
+            guard responseTemp.statusCode == 200 else{
+                completion(nil, NetworkError.responseError(responseTemp.statusCode))
+                return
             }
-        }
-    }
-    static func getVehicle(byPage:String, completion: @escaping (Vehicles?, Error?)->()) {
-        guard let tempURL = URL(string: byPage) else {return}
-        Alamofire.request(tempURL).responseJSON {
-            (dataResponse) in
-            print("in alamofire completionHandler")
-            guard let data = dataResponse.data else{ return }
-            do{
-                let temp = try JSONDecoder().decode(Vehicles.self, from: data)
-                completion(temp,nil)
-            }catch let error{
-                //                print("Serialziation Error")
-                completion(nil,error)
+            guard let data = data else{
+                completion(nil, NetworkError.noData)
+                return
             }
-        }
-    }
-    
-    
-    static func getFilm(byPage:String, completion: @escaping (Films?, Error?)->()) {
-        guard let tempURL = URL(string: byPage) else {return}
-        Alamofire.request(tempURL).responseJSON {
-            (dataResponse) in
-            print("in alamofire completionHandler")
-            guard let data = dataResponse.data else{ return }
-            do{
-                let temp = try JSONDecoder().decode(Films.self, from: data)
-                completion(temp,nil)
-            }catch let error{
-                //                print("Serialziation Error")
-                completion(nil,error)
+            guard let image = UIImage(data:data) else{
+                completion(nil, NetworkError.invalidImage)// or no image
+                return
             }
-        }
+            completion(image, nil)
+            }.resume()
     }
-    
-    
 }
+
+
+
+
