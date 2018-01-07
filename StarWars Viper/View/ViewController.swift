@@ -24,8 +24,6 @@ class ViewController: UIViewController, ViewControllerInterface {
     //has a strong reference to the presenter
     var presenter: ObjectViewModule!
     
-    
-    
     //once it has loaded, it will send a request to presenter to load the view.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +31,7 @@ class ViewController: UIViewController, ViewControllerInterface {
         //        self.presenter.updateView()
         loadAllObjects(curr: "https://swapi.co/api/planets")
     }
-    
+
     var dataArr = [RetSingleType]()
     
     func loadAllObjects(curr:String){

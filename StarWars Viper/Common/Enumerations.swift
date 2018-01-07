@@ -33,18 +33,42 @@ enum StructType{
     case Specie(name:String)
 }
 
-enum RetSingleType{
+//enum RetSingleType:Printable{
+enum RetSingleType {
     case Person(Person)
     case Planet(Planet)
     case Starship(Starship)
     case Vehicle(Vehicle)
     case Film(Film)
     case Specie(Specie)
+ 
+    //getting your url string for images
+    var Description: String{
+        switch self {
+        case .Person(let x):
+            return "https://raw.githubusercontent.com/sbassett1/swImages/master/\(x.name.replacingOccurrences(of: "/", with: "")).png"
+        case .Starship(let x):
+            return "https://raw.githubusercontent.com/Zephzz/sada/master/temp/Starships/\(x.name.replacingOccurrences(of: "/", with: "")).png"
+        case .Vehicle(let x):
+            return "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/Vehicles/\(x.name.replacingOccurrences(of: "/", with: "")).png"
+        case .Film(let x):
+            return "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/FilmPosters/\(x.title.replacingOccurrences(of: "/", with: "")).png"
+        case .Specie(let x):
+            return "https://raw.githubusercontent.com/Zephzz/StarwarsSpeciesImages/master/Species/\(x.name.replacingOccurrences(of: "/", with: "")).png"
+        default: //for the planets
+            return ""
+        }
+    }
 }
 
 
+protocol retStructProtocol{
+    var myArr: [RetSingleType] {get}
+    var myNext: String? {get}
+}
+
 //TODO: put these functions in an extension (maybe also local variables
-enum RetStructType{
+enum RetStructType: retStructProtocol{
     case People1(People)
     case Planets1(Planets)
     case Starships1(Starships)
@@ -106,5 +130,4 @@ enum RetStructType{
             return nil
         }
     }
-    
 }

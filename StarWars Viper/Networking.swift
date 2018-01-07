@@ -15,7 +15,6 @@ protocol NetworkProtocol{
 }
 
 
-
 class Networking {
     //NOTE: this does not deserialize the incoming data.-- returns the "plural" structs
     static func downloadObjects(byPage:String, completion: @escaping(RetStructType?, Error?)->() ){
@@ -90,7 +89,7 @@ class Networking {
     
     
     
-    static func downloadImage(type:StructType, completion: @escaping(UIImage?, Error?)->() ){
+    static func downloadImage(type: StructType, completion: @escaping(UIImage?, Error?)->() ){
         var tempURL = String()
         switch type{
         case .Film(title: let x):

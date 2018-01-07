@@ -17,7 +17,6 @@ protocol ObjectInteractorOutput:class{
     func objectsFetched(objects: [RetStructType])
 }
 
-
 class ObjectPresenter: ObjectViewModule{
     //1) Weak reference to the View
     weak var view: ViewControllerInterface!

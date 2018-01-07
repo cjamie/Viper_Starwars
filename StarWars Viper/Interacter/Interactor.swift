@@ -13,7 +13,7 @@ import Alamofire
  -should be completely UI independent (NO UIKIT)
  -handles the responses and convert them into an entity
  -once interactor finishes a task, it notifies the presenter about the results obtained.
- 
+ ---- may notify via KVO or 
  */
 
 protocol InteractorInput: class {
