@@ -17,7 +17,7 @@ import UIKit
 protocol ViewControllerInterface: class {
     //    func showCellImages()
     //    func showCellNames()
-
+    
 }
 
 class ViewController: UIViewController, ViewControllerInterface {
@@ -29,9 +29,9 @@ class ViewController: UIViewController, ViewControllerInterface {
     //once it has loaded, it will send a request to presenter to load the view.
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("VDL")
-//        self.presenter.updateView()
-        loadAllPeople(curr: "https://swapi.co/api/planets")
+        print("VDL n")
+        //        self.presenter.updateView()
+        loadAllPeople(curr: "https://swapi.co/api/people")
     }
     
     
@@ -39,13 +39,13 @@ class ViewController: UIViewController, ViewControllerInterface {
     
     
     
-    
-    var peopleArr = [Person]()
-    var planetArr = [Planet]()
-    var starshipArr = [Starship]()
-    var vehicleArr = [Vehicle]()
-    var filmArr = [Film]()
-    var specieArr = [Specie]()
+    var dataArr = [RetSingleType]()
+//    var peopleArr = [Person]()
+//    var planetArr = [Planet]()
+//    var starshipArr = [Starship]()
+//    var vehicleArr = [Vehicle]()
+//    var filmArr = [Film]()
+//    var specieArr = [Specie]()
     
     
     func loadAllPeople(curr:String){
@@ -56,34 +56,47 @@ class ViewController: UIViewController, ViewControllerInterface {
                 print(error!)
                 return}
             guard let tempStruct = retStructType else {return}
-            switch tempStruct{
-            case let .People1(x):
-                self?.peopleArr.append(contentsOf: x.results.map{$0})
-                guard let nextLoad = x.next else {
-                    print("all people loaded, reloading table data...")
-                    //                    self.tableView.reloadData()
-                    return}
-                print("next load people")
-                self?.loadAllPeople(curr: nextLoad)
-            case let .Planets1(x):
-                
-                self?.planetArr.append(contentsOf: x.results.map{$0})
-                guard let nextLoad = x.next else {
-                    print("all planets loaded, reloading data...")
-//                    self.tableView.reloadData()
-                    return}
-                print("next load")
-                self?.loadAllPeople(curr: nextLoad)
 
-            case let .Starships1(x):
-                self?.starshipArr.append(contentsOf: x.results.map{$0})
-            case let .Vehicles1(x):
-                self?.vehicleArr.append(contentsOf: x.results.map{$0})
-            case let .Films1(x):
-                self?.filmArr.append(contentsOf: x.results.map{$0})
-            case let .Species1(x):
-                self?.specieArr.append(contentsOf: x.results.map{$0})
-            }
+            self?.dataArr.append(contentsOf: tempStruct.myArr)
+            
+            guard let nextLoad = tempStruct.myNext  else {
+                print("all people loaded, reloading table data...")
+                //                    self.tableView.reloadData()
+                return}
+            print("next load object")
+            self?.loadAllPeople(curr: nextLoad)
+            
+            //            switch tempStruct{
+            //            case let .People1(x):
+            //                self?.peopleArr.append(contentsOf: x.results.map{$0})
+            //                guard let nextLoad = x.next else {
+            //                    print("all people loaded, reloading table data...")
+            //                    //                    self.tableView.reloadData()
+            //                    return}
+            //                print("next load people")
+            //                self?.loadAllPeople(curr: nextLoad)
+            //            case let .Planets1(x):
+            //
+            //
+            //                self?.planetArr.append(contentsOf: x.results.map{$0})
+            //                guard let nextLoad = x.next else {
+            //                    print("all planets loaded, reloading data...")
+            ////                    self.tableView.reloadData()
+            //                    return}
+            //                print("next load")
+            //                self?.loadAllPeople(curr: nextLoad)
+            //
+            //            case let .Starships1(x):
+            //                self?.starshipArr.append(contentsOf: x.results.map{$0})
+            //            case let .Vehicles1(x):
+            //                self?.vehicleArr.append(contentsOf: x.results.map{$0})
+            //            case let .Films1(x):
+            //                self?.filmArr.append(contentsOf: x.results.map{$0})
+            //            case let .Species1(x):
+            //                self?.specieArr.append(contentsOf: x.results.map{$0})
+            //            default:
+            //                return
+            //            }
         }
     }
 }

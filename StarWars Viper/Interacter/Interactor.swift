@@ -24,7 +24,7 @@ protocol InteractorInput: class {
 class Interactor: InteractorInput{
     //Weak reference to Presenter Output interface
     weak var output: InteractorInput!
-    let var url = " " //url of desired API
+    let url = " " //url of desired API
     
     func fetchObjects(){
         

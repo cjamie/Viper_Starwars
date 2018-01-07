@@ -8,12 +8,13 @@
 
 import Foundation
 
-//
+//defines the possible routes
 protocol WireframeInput {
 //    func presentDetailsInterfaceForArticle(article: Article)
 }
 
 //other alternative name is WireFrame
+//responsible for navigation between modules
 class Router: NSObject, WireframeInput{
     
 }

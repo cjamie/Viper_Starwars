@@ -14,7 +14,7 @@ protocol NetworkProtocol{
     func downloadType(completion: @escaping(RetStructType?, Error?)->())
 }
 
-//associative type enum
+//associative type enum for plural
 enum StructType{
     case People
     case Planets
@@ -31,6 +31,26 @@ enum StructType{
     case Specie(name:String)
 }
 
+//protocol hasArr{
+//    var myArr: [RetSingleType]{
+//        get
+//        set
+//    }
+//
+//    var myNext:String?{
+//        get set
+//    }
+//}
+
+enum RetSingleType{
+    case Person(Person)
+    case Planet(Planet)
+    case Starship(Starship)
+    case Vehicle(Vehicle)
+    case Film(Film)
+    case Specie(Specie)
+}
+
 enum RetStructType{
     case People1(People)
     case Planets1(Planets)
@@ -39,6 +59,41 @@ enum RetStructType{
     case Films1(Films)
     case Species1(Species)
     
+    var myArr:[RetSingleType]{
+        var returnData = [RetSingleType]()
+        switch self{
+        case .Films1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Film($0)})
+        case .People1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Person($0)})
+        case .Planets1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Planet($0)})
+        case .Starships1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Starship($0)})
+        case .Species1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Specie($0)})
+        case .Vehicles1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Vehicle($0)})
+        }
+        return returnData
+    }
+    
+    var myNext: String?{
+        switch self{
+        case .Films1(let x):
+            return x.next
+        case .People1(let x):
+            return x.next
+        case .Planets1(let x):
+            return x.next
+        case .Starships1(let x):
+            return x.next
+        case .Species1(let x):
+            return x.next
+        case .Vehicles1(let x):
+            return x.next
+        }
+    }
     
     //this simplifies the downloadOwnjects2 function
     static func getMyself(data:Data)->RetStructType?{
@@ -58,6 +113,7 @@ enum RetStructType{
             return nil
         }
     }
+    
 }
 
 
@@ -179,7 +235,6 @@ class Networking {
                 break
             }
             completion(nil, NetworkError.couldNotParseData)
-
         }
     }
     
@@ -202,7 +257,6 @@ class Networking {
             return
         }
         print(tempURL)
-        
         
         guard let uurl = URL(string: tempURL) else {return}
         let imageSession = URLSession.shared

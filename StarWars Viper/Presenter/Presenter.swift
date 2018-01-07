@@ -21,10 +21,8 @@ protocol ObjectInteractorOutput:class{
 class ObjectPresenter: ObjectViewModule{
     //1) Weak reference to the View
     weak var view: ViewControllerInterface!
-    
     //2) Strong reference to the Interactor interface
     var interactor: InteractorInput!
-    
     //3) Reference to the wireframe
     var router: Router!
 
