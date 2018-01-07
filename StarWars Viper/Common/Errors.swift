@@ -15,3 +15,96 @@ enum NetworkError:Error{
     case couldNotParseData
     case invalidImage
 }
+
+//associative type enum for plural
+enum StructType{
+    case People
+    case Planets
+    case Starships
+    case Vehicles
+    case Films
+    case Species
+    
+    case Person(name:String)
+    case Planet(name:String)
+    case Starship(name:String)
+    case Vehicle(name:String)
+    case Film(title:String)
+    case Specie(name:String)
+}
+
+enum RetSingleType{
+    case Person(Person)
+    case Planet(Planet)
+    case Starship(Starship)
+    case Vehicle(Vehicle)
+    case Film(Film)
+    case Specie(Specie)
+}
+
+
+//TODO: put these functions in an extension (maybe also local variables
+enum RetStructType{
+    case People1(People)
+    case Planets1(Planets)
+    case Starships1(Starships)
+    case Vehicles1(Vehicles)
+    case Films1(Films)
+    case Species1(Species)
+    
+    var myArr:[RetSingleType]{
+        var returnData = [RetSingleType]()
+        switch self{
+        case .Films1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Film($0)})
+        case .People1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Person($0)})
+        case .Planets1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Planet($0)})
+        case .Starships1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Starship($0)})
+        case .Species1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Specie($0)})
+        case .Vehicles1(let x):
+            returnData.append(contentsOf: x.results.map{RetSingleType.Vehicle($0)})
+        }
+        return returnData
+    }
+    
+    var myNext: String?{
+        switch self{
+        case .Films1(let x):
+            return x.next
+        case .People1(let x):
+            return x.next
+        case .Planets1(let x):
+            return x.next
+        case .Starships1(let x):
+            return x.next
+        case .Species1(let x):
+            return x.next
+        case .Vehicles1(let x):
+            return x.next
+        }
+    }
+    
+    //this simplifies the downloadOwnjects2 function
+    static func getMyself(data:Data)->RetStructType?{
+        if let tempDecode = try? JSONDecoder().decode(People.self, from: data){
+            return RetStructType.People1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Planets.self, from: data){
+            return RetStructType.Planets1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Starships.self, from: data){
+            return RetStructType.Starships1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Vehicles.self, from: data){
+            return RetStructType.Vehicles1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Films.self, from: data){
+            return RetStructType.Films1(tempDecode)
+        }else if let tempDecode = try? JSONDecoder().decode(Species.self, from: data){
+            return RetStructType.Species1(tempDecode)
+        }else{
+            return nil
+        }
+    }
+    
+}
