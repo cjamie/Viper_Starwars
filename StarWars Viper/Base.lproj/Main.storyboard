@@ -6,9 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -17,12 +24,70 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ROS-VE-QxS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customObjectCell" rowHeight="168" id="klx-dh-8ar" customClass="CustomObjectCell" customModule="StarWars_Viper" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="168"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="klx-dh-8ar" id="WlD-2O-32p">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-KR-FMK">
+                                                    <rect key="frame" x="0.0" y="3" width="210" height="161.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="K0n-KR-FMK" secondAttribute="height" multiplier="30:23" id="w0q-HB-pLT"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="characterWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ld-ZL-BjR">
+                                                    <rect key="frame" x="210" y="11" width="150" height="146"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9Ld-ZL-BjR" firstAttribute="trailing" secondItem="WlD-2O-32p" secondAttribute="trailingMargin" id="F1D-Uo-YDj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9Ld-ZL-BjR" secondAttribute="bottom" id="Q6t-Yq-7ZC"/>
+                                                <constraint firstItem="K0n-KR-FMK" firstAttribute="leading" secondItem="WlD-2O-32p" secondAttribute="leading" id="UCI-3j-BUK"/>
+                                                <constraint firstItem="9Ld-ZL-BjR" firstAttribute="leading" secondItem="K0n-KR-FMK" secondAttribute="trailing" id="a4v-XP-8Sy"/>
+                                                <constraint firstItem="9Ld-ZL-BjR" firstAttribute="trailing" secondItem="WlD-2O-32p" secondAttribute="trailingMargin" id="lMK-w6-CPJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="K0n-KR-FMK" secondAttribute="bottom" constant="3" id="lzT-3C-ElI"/>
+                                                <constraint firstItem="9Ld-ZL-BjR" firstAttribute="top" secondItem="WlD-2O-32p" secondAttribute="topMargin" id="oyl-TM-u72"/>
+                                                <constraint firstItem="K0n-KR-FMK" firstAttribute="top" secondItem="WlD-2O-32p" secondAttribute="top" constant="3" id="qSH-EI-DbW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelText" destination="9Ld-ZL-BjR" id="SK2-0s-Bju"/>
+                                            <outlet property="myImage" destination="K0n-KR-FMK" id="4c0-dH-eka"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="OUF-Rk-xWg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hAm-on-WCB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ROS-VE-QxS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DDQ-d4-z2t"/>
+                            <constraint firstItem="ROS-VE-QxS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ikc-6d-HnT"/>
+                            <constraint firstItem="ROS-VE-QxS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fop-mY-qXS"/>
+                            <constraint firstItem="ROS-VE-QxS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zcV-jN-Y2g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ROS-VE-QxS" id="ttq-cv-yE6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="224.80000000000001" y="100.29985007496252"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="vMI-rg-XSO">

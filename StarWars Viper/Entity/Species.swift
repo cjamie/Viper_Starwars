@@ -24,7 +24,7 @@ struct Specie:Codable{
     var hair_colors:String
     var eye_colors:String
     var average_lifespan:String
-    var homeworld:String? //sneaky bastard
+    var homeworld:String? 
     var language:String
     var people: [String]
     var films:[String]

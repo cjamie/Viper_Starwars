@@ -7,29 +7,34 @@
 //
 
 import Foundation
+/*
+ receives data structures from the interactor and applies view logic to this data to prepare it for the view
+ 
+ */
 
-//protocol that defines my commands sent from (view -> presenter)
+
+//defines commands sent from (view -> presenter)
 protocol ObjectViewModule:class{
     func updateView()
 }
-//protocol that defines (interactor->Presenter)
+//defines commands sent from (interactor->Presenter)
 protocol ObjectInteractorOutput:class{
     func objectsFetched(objects: [RetStructType])
 }
 
 class ObjectPresenter: ObjectViewModule{
     //1) Weak reference to the View
-    weak var view: ViewControllerInterface!
     //2) Strong reference to the Interactor interface
-    var interactor: InteractorInput!
     //3) Reference to the wireframe
-    var router: Router!
+    weak var view: ViewControllerInterface?
+    var interactor: InteractorInput?
+    var router: Router?
 
+    
+    //will return my objects
     func updateView() {
-//        self.interactor.updateView()
+         self.interactor?.fetchObjects()
     }
-    
-    
 }
 
 

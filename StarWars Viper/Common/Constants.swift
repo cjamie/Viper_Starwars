@@ -9,7 +9,6 @@
 import UIKit
 
 class Constants{
-    static let shared = Constants()
 
     
 }

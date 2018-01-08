@@ -6,9 +6,13 @@
 //  Copyright © 2018 Jamie Chu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-//defines the possible routes
+/*
+ navigation logic of the application
+ defines the possible routes
+ */
+
 protocol WireframeInput {
 //    func presentDetailsInterfaceForArticle(article: Article)
 }
@@ -16,5 +20,9 @@ protocol WireframeInput {
 //other alternative name is WireFrame
 //responsible for navigation between modules
 class Router: NSObject, WireframeInput{
+
+    static var mainStoryboard: UIStoryboard{
+        return UIStoryboard(name: "Main", bundle: Bundle.main)
+    }
     
 }

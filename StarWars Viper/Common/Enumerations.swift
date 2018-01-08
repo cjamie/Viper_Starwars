@@ -33,7 +33,6 @@ enum StructType{
     case Specie(name:String)
 }
 
-//enum RetSingleType:Printable{
 enum RetSingleType {
     case Person(Person)
     case Planet(Planet)
@@ -57,6 +56,23 @@ enum RetSingleType {
             return "https://raw.githubusercontent.com/Zephzz/StarwarsSpeciesImages/master/Species/\(x.name.replacingOccurrences(of: "/", with: "")).png"
         default: //for the planets
             return ""
+        }
+    }
+    
+    var name: String{
+        switch self {
+        case .Person(let x):
+            return x.name
+        case .Starship(let x):
+            return x.name
+        case .Vehicle(let x):
+            return x.name
+        case .Film(let x):
+            return x.title
+        case .Specie(let x):
+            return x.name
+        case .Planet(let x):
+            return x.name
         }
     }
 }

@@ -9,11 +9,9 @@
 import Foundation
 import Alamofire
 
-
 protocol NetworkProtocol{
     func downloadType(completion: @escaping(RetStructType?, Error?)->())
 }
-
 
 class Networking {
     //NOTE: this does not deserialize the incoming data.-- returns the "plural" structs
@@ -87,25 +85,8 @@ class Networking {
         }
     }
     
-    
-    
-    static func downloadImage(type: StructType, completion: @escaping(UIImage?, Error?)->() ){
-        var tempURL = String()
-        switch type{
-        case .Film(title: let x):
-            tempURL = "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/FilmPosters/\(x.replacingOccurrences(of: "/", with: "")).png"
-        case .Person(name: let x):
-            tempURL = "https://raw.githubusercontent.com/sbassett1/swImages/master/\(x.replacingOccurrences(of: "/", with: "")).png"
-        case .Specie(name: let x):
-            tempURL = "https://raw.githubusercontent.com/Zephzz/StarwarsSpeciesImages/master/Species/\(x.replacingOccurrences(of: "/", with: "")).png"
-        case .Starship(name: let x):
-            tempURL = "https://raw.githubusercontent.com/Zephzz/sada/master/temp/Starships/\(x.replacingOccurrences(of: "/", with: "")).png"
-        case .Vehicle(name: let x):
-            tempURL = "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/Vehicles/\(x.replacingOccurrences(of: "/", with: "")).png"
-        default:
-            return
-        }
-        print(tempURL)
+    static func downloadImage(type: RetSingleType, completion: @escaping(UIImage?, Error?)->() ){
+        let tempURL = type.Description
         
         guard let uurl = URL(string: tempURL) else {return}
         let imageSession = URLSession.shared
