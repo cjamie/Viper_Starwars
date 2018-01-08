@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol ViewModelDelegate:class{
-    func getObjects()
+    func getAllObjects(curr:String)
     func getObjectName()
     func getObjectArrayCount()
 }

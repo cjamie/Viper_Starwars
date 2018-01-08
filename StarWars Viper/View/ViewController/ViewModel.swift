@@ -20,14 +20,10 @@ import Foundation
 class ViewModel {
 //    var dataCount: Int?
     
-    var dataArr: [RetSingleType]?
-    
-    
+    var dataArr = [RetSingleType]()
     var viewController: ViewControllerDelegate?
-
     init(_ delegate:ViewControllerDelegate){
         self.viewController = delegate
-        
     }
 
 //    var dataArr:[RetSingleType]=[]
@@ -38,7 +34,6 @@ class ViewModel {
     var dataCount: Int{
         return dataArr.count
     }
-
     var selectedObject: RetSingleType?{
         viewController
     }
@@ -48,8 +43,26 @@ class ViewModel {
     }*/
 }
 extension ViewModel: ViewModelDelegate{
-    func getObjects() {
-        //Make Network call to store data
+    func getAllObjects(curr:String) {
+        print("loadAll")
+        Networking.downloadObjects(byPage: curr) {
+            [weak self](retStructType, error) in
+            guard error == nil else{
+                print(error!.localizedDescription)
+                return
+            }
+            guard let tempStruct = retStructType else {return}
+            self?.dataArr.append(contentsOf: tempStruct.myArr)
+            guard let nextLoad = tempStruct.myNext  else {
+                print("all people loaded, reloading table data...")
+                guard let copy = self?.dataArr else{return}
+                print(copy)
+                //                    self.tableView.reloadData()
+                return
+            }
+            print("next load object")
+            self?.getAllObjects(curr: nextLoad)
+        }
     }
     
     func getObjectName() {

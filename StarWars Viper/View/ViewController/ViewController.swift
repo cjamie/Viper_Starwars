@@ -37,47 +37,12 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         
         print("VDL n")
-        //        self.presenter.updateView()
         self.viewModel = ViewModel(self)
-        loadAllObjects(curr: "https://swapi.co/api/planets")
-    }
-    
-    
-    func loadAllObjects(curr:String){
-        print("loadAll")
-        Networking.downloadObjects(byPage: curr) {
-            [weak self](retStructType, error) in
-            guard error == nil else{
-                print(error!.localizedDescription)
-                return
-            }
-            guard let tempStruct = retStructType else {return}
-            self?.dataArr.append(contentsOf: tempStruct.myArr)
-            guard let nextLoad = tempStruct.myNext  else {
-                print("all people loaded, reloading table data...")
-                guard let copy = self?.dataArr else{return}
-                print(copy)
-                //                    self.tableView.reloadData()
-                return
-            }
-            print("next load object")
-            self?.loadAllObjects(curr: nextLoad)
-        }
+        viewModel?.getAllObjects(curr: "https://swapi.co/api/planets")
     }
     
     
 }
-
-//typealias VCInterfaceFunctions = ViewController
-//extension VCInterfaceFunctions: ViewControllerDelegate{
-//
-//    //takes in [String] and displays onto the table view
-//    func showCellNames(data:[RetSingleType]) {
-//        self.dataArr = data
-//        self.tableView.reloadData()
-//    }
-//
-//}
 
 
 
@@ -110,6 +75,4 @@ extension ViewController:ViewControllerDelegate{
     func reloadData() {
         
     }
-    
-    
 }
