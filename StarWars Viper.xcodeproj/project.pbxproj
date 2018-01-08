@@ -29,7 +29,7 @@
 		8472714D2001FEB400217FA8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472714C2001FEB400217FA8 /* Router.swift */; };
 		8472714F20021FA600217FA8 /* CustomObjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472714E20021FA600217FA8 /* CustomObjectCell.swift */; };
 		847271512002C39500217FA8 /* GlobalCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271502002C39500217FA8 /* GlobalCache.swift */; };
-		847271532002F2A100217FA8 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271522002F2A100217FA8 /* ViewControllerViewModel.swift */; };
+		847271532002F2A100217FA8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271522002F2A100217FA8 /* ViewModel.swift */; };
 		8472715720032B9E00217FA8 /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715620032B9E00217FA8 /* ViewModelDelegate.swift */; };
 		8472715920033B3500217FA8 /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715820033B3500217FA8 /* ViewControllerDelegate.swift */; };
 		8472715C20035A0700217FA8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715B20035A0700217FA8 /* DetailViewModel.swift */; };
@@ -78,7 +78,7 @@
 		8472714C2001FEB400217FA8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8472714E20021FA600217FA8 /* CustomObjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomObjectCell.swift; sourceTree = "<group>"; };
 		847271502002C39500217FA8 /* GlobalCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalCache.swift; sourceTree = "<group>"; };
-		847271522002F2A100217FA8 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
+		847271522002F2A100217FA8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8472715620032B9E00217FA8 /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
 		8472715820033B3500217FA8 /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
 		8472715B20035A0700217FA8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 				8472715620032B9E00217FA8 /* ViewModelDelegate.swift */,
 				8472714E20021FA600217FA8 /* CustomObjectCell.swift */,
 				8472710C2000C4C600217FA8 /* ViewController.swift */,
-				847271522002F2A100217FA8 /* ViewControllerViewModel.swift */,
+				847271522002F2A100217FA8 /* ViewModel.swift */,
 				8472715820033B3500217FA8 /* ViewControllerDelegate.swift */,
 			);
 			path = ViewController;
@@ -486,7 +486,7 @@
 				8472710B2000C4C600217FA8 /* AppDelegate.swift in Sources */,
 				847271442001B2FF00217FA8 /* Enumerations.swift in Sources */,
 				8472712E2000C55B00217FA8 /* Networking.swift in Sources */,
-				847271532002F2A100217FA8 /* ViewControllerViewModel.swift in Sources */,
+				847271532002F2A100217FA8 /* ViewModel.swift in Sources */,
 				847271372000C76300217FA8 /* Vehicles.swift in Sources */,
 				8472715C20035A0700217FA8 /* DetailViewModel.swift in Sources */,
 				8472714D2001FEB400217FA8 /* Router.swift in Sources */,

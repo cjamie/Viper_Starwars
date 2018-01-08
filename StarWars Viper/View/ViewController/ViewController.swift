@@ -21,12 +21,13 @@ protocol ViewControllerInterface: class {
 class ViewController: UIViewController{
     //String reference to viewModel because you "own" it
 //    lazy var viewModel: ViewModel = ViewModel(self)
-    weak var viewModel: ViewControllerDelegate!
+    var viewModel: ViewModelDelegate?
 
-    init(_ delegate:ViewModelDelegate){
-        self.viewController = delegate
-    }
+//    init(_ delegate:ViewModelDelegate){
+//        self.viewModel = delegate
+//    }
 
+    var dataArr = [RetSingleType]()
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -37,6 +38,7 @@ class ViewController: UIViewController{
         
         print("VDL n")
         //        self.presenter.updateView()
+        self.viewModel = ViewModel(self)
         loadAllObjects(curr: "https://swapi.co/api/planets")
     }
     
@@ -84,6 +86,8 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArr.count
+        //Unwrap ViewModel
+        //return ViewModel.getArrayCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,6 +95,8 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
             fatalError("No cell in tableView")
 //            return UITableViewCell
         }
+        //let name = ViewModel.getObjectName()
+        //cell.label?.text = name
         return cell
     }
     
@@ -100,4 +106,10 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
-
+extension ViewController:ViewControllerDelegate{
+    func reloadData() {
+        
+    }
+    
+    
+}
