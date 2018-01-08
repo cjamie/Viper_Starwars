@@ -15,24 +15,24 @@ import Foundation
 //My view controller just wants my object array.count, the images, and names.
 
 
-class ViewControllerViewModel: VCViewModelProtocol{
+
+
+class ViewControllerViewModel {
     
     weak var viewController: ViewModelDelegate!
 
     init(_ delegate:ViewModelDelegate){
         self.viewController = delegate
     }
+
+    var dataArr:[RetSingleType]=[]
     
-    
-    private var obj = RetSingleType?
     private var dataArr:[RetSingleType]{
         self.dataCount = dataArr.count
     }
     
-    
-    
-    //computed properties
-    var dataCount: Int?{
+    //computed properties that are get-only by default
+    var dataCount: Int{
         return dataArr.count
     }
 

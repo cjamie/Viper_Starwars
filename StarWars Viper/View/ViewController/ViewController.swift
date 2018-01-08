@@ -19,15 +19,20 @@ protocol ViewControllerInterface: class {
 
 
 class ViewController: UIViewController{
-    //has a strong reference to the presenter
-//    var presenter: ObjectViewModule?
+    lazy var viewModel: ViewControllerViewModel = ViewControllerViewModel(self)
+//    weak var viewModel: ViewControllerDelegate
+//
+//    init(_ delegate:ViewModelDelegate){
+//        self.viewController = delegate
+//    }
 
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     //once it has loaded, it will send a request to presenter to load the view.
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let viewModel = ViewControllerViewModel(dataArr: <#T##[RetSingleType]#>, object: <#T##RetSingleType#>)
         
         print("VDL n")
         //        self.presenter.updateView()
@@ -60,16 +65,16 @@ class ViewController: UIViewController{
     
 }
 
-typealias VCInterfaceFunctions = ViewController
-extension VCInterfaceFunctions: ViewControllerDelegate{
-    
-    //takes in [String] and displays onto the table view
-    func showCellNames(data:[RetSingleType]) {
-        self.dataArr = data
-        self.tableView.reloadData()
-    }
-    
-}
+//typealias VCInterfaceFunctions = ViewController
+//extension VCInterfaceFunctions: ViewControllerDelegate{
+//
+//    //takes in [String] and displays onto the table view
+//    func showCellNames(data:[RetSingleType]) {
+//        self.dataArr = data
+//        self.tableView.reloadData()
+//    }
+//
+//}
 
 
 

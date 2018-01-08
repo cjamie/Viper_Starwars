@@ -9,6 +9,11 @@
 import Foundation
 
 protocol ViewControllerDelegate:class {
-        var dataCount:Int? {get}
-        var selectedObject:RetSingleType? {get}
+    var dataCount:Int? {get}
+    var selectedObject:RetSingleType? {get}
+    var dataArr:[RetSingleType]{set}
+    var names:[names]{get}
 }
+
+
+
