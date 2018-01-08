@@ -1,5 +1,5 @@
 //
-//  ViewControllerViewModel.swift
+//  ViewModel.swift
 //  StarWars Viper
 //
 //  Created by Admin on 1/7/18.
@@ -17,12 +17,13 @@ import Foundation
 
 
 
-class ViewControllerViewModel {
+class ViewModel:ViewModelDelegate {
     
     weak var viewController: ViewModelDelegate!
 
     init(_ delegate:ViewModelDelegate){
         self.viewController = delegate
+        
     }
 
     var dataArr:[RetSingleType]=[]
@@ -45,6 +46,4 @@ class ViewControllerViewModel {
     }
 }
 
-extension ViewControllerViewModel{
-    
-}
+

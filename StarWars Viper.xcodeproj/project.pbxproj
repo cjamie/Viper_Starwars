@@ -32,6 +32,7 @@
 		847271532002F2A100217FA8 /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847271522002F2A100217FA8 /* ViewControllerViewModel.swift */; };
 		8472715720032B9E00217FA8 /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715620032B9E00217FA8 /* ViewModelDelegate.swift */; };
 		8472715920033B3500217FA8 /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715820033B3500217FA8 /* ViewControllerDelegate.swift */; };
+		8472715C20035A0700217FA8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715B20035A0700217FA8 /* DetailViewModel.swift */; };
 		F09C037DE94006445598C2E3 /* Pods_StarWars_ViperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */; };
 		FDC5757CB98E34E5F9FB669C /* Pods_StarWars_Viper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		847271522002F2A100217FA8 /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
 		8472715620032B9E00217FA8 /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
 		8472715820033B3500217FA8 /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
+		8472715B20035A0700217FA8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_ViperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_Viper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -145,7 +147,7 @@
 				8472713F2001AEDB00217FA8 /* View */,
 				8472713E2001AE4400217FA8 /* Router */,
 				8472710A2000C4C600217FA8 /* AppDelegate.swift */,
-				8472712D2000C55B00217FA8 /* Networking.swift */,
+				8472715A200359D600217FA8 /* Service */,
 				8472710E2000C4C600217FA8 /* Main.storyboard */,
 				847271142000C4C600217FA8 /* Assets.xcassets */,
 				847271162000C4C600217FA8 /* LaunchScreen.storyboard */,
@@ -236,8 +238,17 @@
 			isa = PBXGroup;
 			children = (
 				847271482001F52500217FA8 /* DetailViewController.swift */,
+				8472715B20035A0700217FA8 /* DetailViewModel.swift */,
 			);
 			path = DetailController;
+			sourceTree = "<group>";
+		};
+		8472715A200359D600217FA8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8472712D2000C55B00217FA8 /* Networking.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		DC79721DA3B9D1BD323C2515 /* Frameworks */ = {
@@ -477,6 +488,7 @@
 				8472712E2000C55B00217FA8 /* Networking.swift in Sources */,
 				847271532002F2A100217FA8 /* ViewControllerViewModel.swift in Sources */,
 				847271372000C76300217FA8 /* Vehicles.swift in Sources */,
+				8472715C20035A0700217FA8 /* DetailViewModel.swift in Sources */,
 				8472714D2001FEB400217FA8 /* Router.swift in Sources */,
 				847271392000C77900217FA8 /* Films.swift in Sources */,
 				8472715920033B3500217FA8 /* ViewControllerDelegate.swift in Sources */,

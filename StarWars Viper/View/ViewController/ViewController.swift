@@ -19,12 +19,13 @@ protocol ViewControllerInterface: class {
 
 
 class ViewController: UIViewController{
-    lazy var viewModel: ViewControllerViewModel = ViewControllerViewModel(self)
-//    weak var viewModel: ViewControllerDelegate
-//
-//    init(_ delegate:ViewModelDelegate){
-//        self.viewController = delegate
-//    }
+    //String reference to viewModel because you "own" it
+//    lazy var viewModel: ViewModel = ViewModel(self)
+    weak var viewModel: ViewControllerDelegate!
+
+    init(_ delegate:ViewModelDelegate){
+        self.viewController = delegate
+    }
 
     
     
