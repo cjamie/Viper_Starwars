@@ -9,10 +9,7 @@
 import Foundation
 //just want functions
 protocol ViewControllerDelegate:class {
-//    var dataCount:Int? {get}
-//    var selectedObject:RetSingleType? {get}
-//    var dataArr:[RetSingleType]{get set }
-//    var names:[String]{get}
+    
     func reloadData()
     
 }

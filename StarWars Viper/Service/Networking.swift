@@ -55,39 +55,9 @@ class Networking {
         }
     }
     
-    //this version will take in an enum parameter
-    static func downloadObjects2(byPage:String, completion: @escaping(RetStructType?, Error?)->() ){
-        guard let tempURL = URL(string: byPage) else {return}
-        Alamofire.request(tempURL).responseJSON {
-            (dataResponse) in
-            guard dataResponse.error == nil else {
-                completion(nil, dataResponse.error)
-                print(dataResponse.error!.localizedDescription)
-                return
-            }
-            guard let tempResp = dataResponse.response else {
-                completion(nil, NetworkError.noResponse)
-                return
-            }
-            guard tempResp.statusCode == 200 else{
-                completion(nil, NetworkError.responseError(tempResp.statusCode))
-                return
-            }
-            guard let data = dataResponse.data else{
-                completion(nil, NetworkError.noData)
-                return
-            }
-            guard let tempRet = RetStructType.getMyself(data: data) else{
-                completion(nil, NetworkError.couldNotParseData)
-                return
-            }
-            completion(tempRet, nil)
-        }
-    }
-    
     static func downloadImage(type: RetSingleType, completion: @escaping(UIImage?, Error?)->() ){
         let tempURL = type.Description
-        
+        print("downloading image                                                                                                                               with url \(tempURL)")
         guard let uurl = URL(string: tempURL) else {return}
         let imageSession = URLSession.shared
         imageSession.invalidateAndCancel()
@@ -111,7 +81,7 @@ class Networking {
                 return
             }
             completion(image, nil)
-            }.resume()
+        }.resume()
     }
 }
 

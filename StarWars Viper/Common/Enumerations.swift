@@ -17,21 +17,21 @@ enum NetworkError:Error{
 }
 
 //associative type enum for plural
-enum StructType{
-    case People
-    case Planets
-    case Starships
-    case Vehicles
-    case Films
-    case Species
-    
-    case Person(name:String)
-    case Planet(name:String)
-    case Starship(name:String)
-    case Vehicle(name:String)
-    case Film(title:String)
-    case Specie(name:String)
-}
+//enum StructType{
+//    case People
+//    case Planets
+//    case Starships
+//    case Vehicles
+//    case Films
+//    case Species
+//    
+//    case Person(name:String)
+//    case Planet(name:String)
+//    case Starship(name:String)
+//    case Vehicle(name:String)
+//    case Film(title:String)
+//    case Specie(name:String)
+//}
 
 enum RetSingleType {
     case Person(Person)
@@ -41,19 +41,19 @@ enum RetSingleType {
     case Film(Film)
     case Specie(Specie)
  
-    //getting your url string for images
+    //getting your url string for images for networking calls. 
     var Description: String{
         switch self {
         case .Person(let x):
-            return "https://raw.githubusercontent.com/sbassett1/swImages/master/\(x.name.replacingOccurrences(of: "/", with: "")).png"
+            return "https://raw.githubusercontent.com/sbassett1/swImages/master/\(x.name.replacingOccurrences(of: "/", with: "")).png".replacingOccurrences(of: " ", with: "").folding(options: .diacriticInsensitive, locale: .current)
         case .Starship(let x):
-            return "https://raw.githubusercontent.com/Zephzz/sada/master/temp/Starships/\(x.name.replacingOccurrences(of: "/", with: "")).png"
+            return "https://raw.githubusercontent.com/Zephzz/sada/master/temp/Starships/\(x.name.replacingOccurrences(of: "/", with: "")).png".replacingOccurrences(of: " ", with: "").folding(options: .diacriticInsensitive, locale: .current)
         case .Vehicle(let x):
-            return "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/Vehicles/\(x.name.replacingOccurrences(of: "/", with: "")).png"
+            return "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/Vehicles/\(x.name.replacingOccurrences(of: "/", with: "")).png".replacingOccurrences(of: " ", with: "").folding(options: .diacriticInsensitive, locale: .current)
         case .Film(let x):
-            return "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/FilmPosters/\(x.title.replacingOccurrences(of: "/", with: "")).png"
+            return "https://raw.githubusercontent.com/cjamie/starwarsapi_starships/master/FilmPosters/\(x.title.replacingOccurrences(of: "/", with: "")).png".replacingOccurrences(of: " ", with: "").folding(options: .diacriticInsensitive, locale: .current)
         case .Specie(let x):
-            return "https://raw.githubusercontent.com/Zephzz/StarwarsSpeciesImages/master/Species/\(x.name.replacingOccurrences(of: "/", with: "")).png"
+            return "https://raw.githubusercontent.com/Zephzz/StarwarsSpeciesImages/master/Species/\(x.name.replacingOccurrences(of: "/", with: "")).png".replacingOccurrences(of: " ", with: "").folding(options: .diacriticInsensitive, locale: .current)
         default: //for the planets
             return ""
         }
@@ -125,25 +125,6 @@ enum RetStructType: retStructProtocol{
             return x.next
         case .Vehicles1(let x):
             return x.next
-        }
-    }
-    
-    //this simplifies the downloadOwnjects2 function
-    static func getMyself(data:Data)->RetStructType?{
-        if let tempDecode = try? JSONDecoder().decode(People.self, from: data){
-            return RetStructType.People1(tempDecode)
-        }else if let tempDecode = try? JSONDecoder().decode(Planets.self, from: data){
-            return RetStructType.Planets1(tempDecode)
-        }else if let tempDecode = try? JSONDecoder().decode(Starships.self, from: data){
-            return RetStructType.Starships1(tempDecode)
-        }else if let tempDecode = try? JSONDecoder().decode(Vehicles.self, from: data){
-            return RetStructType.Vehicles1(tempDecode)
-        }else if let tempDecode = try? JSONDecoder().decode(Films.self, from: data){
-            return RetStructType.Films1(tempDecode)
-        }else if let tempDecode = try? JSONDecoder().decode(Species.self, from: data){
-            return RetStructType.Species1(tempDecode)
-        }else{
-            return nil
         }
     }
 }

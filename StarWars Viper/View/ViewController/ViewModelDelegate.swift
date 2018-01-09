@@ -10,7 +10,8 @@ import Foundation
 
 
 protocol ViewModelDelegate:class{
-    func getAllObjects(curr:String)
-    func getObjectName()
-    func getObjectArrayCount()
+    func getAllObjects(curr:String, completion: @escaping()->())
+    func getObjectNames(for:Int)->String
+    func getObjectArrayCount()->Int
+    func getObject(by index:Int)->RetSingleType
 }

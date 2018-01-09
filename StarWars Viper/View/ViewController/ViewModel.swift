@@ -8,43 +8,22 @@
 
 import Foundation
 
-
-
-
-
-//My view controller just wants my object array.count, the images, and names.
-
-
-
-
 class ViewModel {
 //    var dataCount: Int?
-    
     var dataArr = [RetSingleType]()
     var viewController: ViewControllerDelegate?
     init(_ delegate:ViewControllerDelegate){
         self.viewController = delegate
     }
-
-//    var dataArr:[RetSingleType]=[]
-    
-   /* private var dataArr:[RetSingleType]
-    
-    //computed properties that are get-only by default
-    var dataCount: Int{
-        return dataArr.count
-    }
-    var selectedObject: RetSingleType?{
-        viewController
-    }
-    
-    var names:[String]{
-        return dataArr.map{$0.name}
-    }*/
 }
 extension ViewModel: ViewModelDelegate{
-    func getAllObjects(curr:String) {
-        print("loadAll")
+    
+    func getObject(by index:Int)->RetSingleType{
+        return dataArr[index]
+    }
+
+    //might need to use an escaping closure so it can be called from tableView
+    func getAllObjects(curr:String, completion: @escaping()->() ) {
         Networking.downloadObjects(byPage: curr) {
             [weak self](retStructType, error) in
             guard error == nil else{
@@ -56,23 +35,24 @@ extension ViewModel: ViewModelDelegate{
             guard let nextLoad = tempStruct.myNext  else {
                 print("all people loaded, reloading table data...")
                 guard let copy = self?.dataArr else{return}
-                print(copy)
-                //                    self.tableView.reloadData()
+//                print(copy)
+                print("reloading data")
+                self?.viewController?.reloadData()
+                //       self.tableView.reloadData()
                 return
             }
-            print("next load object")
-            self?.getAllObjects(curr: nextLoad)
+            print("load next object...")
+            self?.getAllObjects(curr: nextLoad, completion: {})
         }
     }
     
-    func getObjectName() {
+    func getObjectNames(for row:Int)->String {
+        return self.dataArr.map{$0.name}[row]
         //Return string from array at index
     }
     
-    func getObjectArrayCount() {
-        //Return count of array
+    func getObjectArrayCount()->Int {
+        return dataArr.count
     }
-    
-
 }
 
