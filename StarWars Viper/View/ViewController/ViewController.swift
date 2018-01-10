@@ -19,9 +19,7 @@ protocol ViewControllerInterface: class {
 
 
 class ViewController: UIViewController{
-//    lazy var viewModel: ViewModel = ViewModel(self)
     var viewModel: ViewModelDelegate?
-    var dataArr = [RetSingleType]()
     @IBOutlet weak var tableView: UITableView!
     
     //once it has loaded, it will send a request to presenter to load the view.
@@ -32,7 +30,7 @@ class ViewController: UIViewController{
         self.viewModel = ViewModel(self) //closes the loop
 //        viewModel?.getAllObjects(curr: "https://swapi.co/api/planets")
         viewModel?.getAllObjects(curr: "https://swapi.co/api/starships", completion: {
-            self.reloadData()
+//            self.reloadData()
         })
     }
     
@@ -65,10 +63,9 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
         return cell
     }
 
-    //segue to details
+    //segue to details view controller.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO: instantiate your detail view controller. dependency injection.
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -87,6 +84,14 @@ typealias TabBarFunctions = ViewController
 extension TabBarFunctions: UITabBarDelegate{
     //reload the tableview with new viewmodel content.
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let tempURL = self.viewModel?.generateLoadUrl(with: item.title!) else{return}
+        self.viewModel?.changeDataArr(with: tempURL)
+//        viewModel?.getAllObjects(curr: tempURL, completion: {
+//            print("tabBar call complete")
+//            self.reloadData()
+//        })
+        //        self.viewModel?.changeDataArr(to: )
         
+//        print(item.title)
     }
 }

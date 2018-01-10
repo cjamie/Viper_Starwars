@@ -31,39 +31,35 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customObjectCell" rowHeight="168" id="klx-dh-8ar" customClass="CustomObjectCell" customModule="StarWars_Viper" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="168"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="klx-dh-8ar" id="WlD-2O-32p">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="klx-dh-8ar" id="WlD-2O-32p">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-KR-FMK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-KR-FMK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="167.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="Dob-Cx-TxR"/>
                                                         <constraint firstAttribute="width" constant="200" id="eLf-uC-0lg"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ld-ZL-BjR">
-                                                    <rect key="frame" x="200" y="-75" width="150" height="150"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="1R5-gj-4LF"/>
-                                                        <constraint firstAttribute="height" constant="150" id="7kJ-jR-7xY"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF3-Ma-PWI">
+                                                    <rect key="frame" x="200" y="11" width="160" height="146"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9Ld-ZL-BjR" firstAttribute="leading" secondItem="K0n-KR-FMK" secondAttribute="trailing" id="HIE-U5-TsI"/>
-                                                <constraint firstItem="9Ld-ZL-BjR" firstAttribute="centerY" secondItem="WlD-2O-32p" secondAttribute="centerY" id="UTQ-ap-2oe"/>
+                                                <constraint firstItem="DF3-Ma-PWI" firstAttribute="top" secondItem="WlD-2O-32p" secondAttribute="topMargin" id="99D-BK-CWT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="DF3-Ma-PWI" secondAttribute="trailing" id="AGe-GU-GSs"/>
+                                                <constraint firstItem="DF3-Ma-PWI" firstAttribute="leading" secondItem="K0n-KR-FMK" secondAttribute="trailing" id="LkU-vh-gg3"/>
                                                 <constraint firstAttribute="bottom" secondItem="K0n-KR-FMK" secondAttribute="bottom" id="ebi-uD-rfn"/>
                                                 <constraint firstItem="K0n-KR-FMK" firstAttribute="top" secondItem="WlD-2O-32p" secondAttribute="top" id="fyF-K1-yMI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="DF3-Ma-PWI" secondAttribute="bottom" id="hgV-RS-dAV"/>
                                                 <constraint firstItem="K0n-KR-FMK" firstAttribute="leading" secondItem="WlD-2O-32p" secondAttribute="leading" id="nLY-PH-iew"/>
-                                                <constraint firstItem="9Ld-ZL-BjR" firstAttribute="trailing" secondItem="WlD-2O-32p" secondAttribute="trailingMargin" id="uF5-KC-Mgr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="labelText" destination="9Ld-ZL-BjR" id="SK2-0s-Bju"/>
+                                            <outlet property="labelText" destination="DF3-Ma-PWI" id="MP9-dI-5SX"/>
                                             <outlet property="myImage" destination="K0n-KR-FMK" id="Z8w-b4-I6I"/>
                                         </connections>
                                     </tableViewCell>
@@ -82,7 +78,8 @@
                                     <tabBarItem title="Planets" id="Ied-y0-KNF"/>
                                     <tabBarItem title="Vehicles" id="KRV-fQ-MT3"/>
                                     <tabBarItem title="Films" id="Pce-ne-0mB"/>
-                                    <tabBarItem systemItem="more" id="0hT-Lu-Txq"/>
+                                    <tabBarItem title="Species" id="0hT-Lu-Txq"/>
+                                    <tabBarItem title="Starships" id="w1U-DV-tQA"/>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="v5O-iS-A47"/>

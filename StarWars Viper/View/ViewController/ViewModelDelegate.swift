@@ -14,4 +14,11 @@ protocol ViewModelDelegate:class{
     func getObjectNames(for:Int)->String
     func getObjectArrayCount()->Int
     func getObject(by index:Int)->RetSingleType
+    
+    //TODO: function for changing for changing between categories in tabbarcontroller.
+    
+    func changeDataArr(with url:String)
+    func generateLoadUrl(with title:String)->String
+
+    
 }

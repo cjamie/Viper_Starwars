@@ -8,15 +8,27 @@
 
 import Foundation
 
+
+//has a reference to its delegate
+//we can "inject" different viewModelDelegates based on our needs
 class ViewModel {
-//    var dataCount: Int?
     var dataArr = [RetSingleType]()
     var viewController: ViewControllerDelegate?
     init(_ delegate:ViewControllerDelegate){
         self.viewController = delegate
     }
 }
+
+//we use enum functions and properties to avoid switch statements.
+
 extension ViewModel: ViewModelDelegate{
+    //clear your array first
+    func changeDataArr(with url: String) {
+        self.dataArr = []
+        getAllObjects(curr: url) {
+        }
+    }
+    
     
     func getObject(by index:Int)->RetSingleType{
         return dataArr[index]
@@ -24,6 +36,7 @@ extension ViewModel: ViewModelDelegate{
 
     //might need to use an escaping closure so it can be called from tableView
     func getAllObjects(curr:String, completion: @escaping()->() ) {
+        //clear your array first
         Networking.downloadObjects(byPage: curr) {
             [weak self](retStructType, error) in
             guard error == nil else{
@@ -36,23 +49,37 @@ extension ViewModel: ViewModelDelegate{
                 print("all people loaded, reloading table data...")
                 guard let copy = self?.dataArr else{return}
 //                print(copy)
-                print("reloading data")
+                print("reloading data from viewModel")
                 self?.viewController?.reloadData()
-                //       self.tableView.reloadData()
                 return
             }
             print("load next object...")
             self?.getAllObjects(curr: nextLoad, completion: {})
         }
     }
+
     
     func getObjectNames(for row:Int)->String {
-        return self.dataArr.map{$0.name}[row]
-        //Return string from array at index
+        return self.dataArr[row].name
     }
     
     func getObjectArrayCount()->Int {
         return dataArr.count
     }
+    
+//    func changeDataArr(to data:[RetSingleType]){
+//        self.dataArr = data
+//        viewController?.reloadData()// is this necessary?
+//    }
+//
+    func generateLoadUrl(with title:String)->String{
+        print("generate load url \(Constants.kUrlPrefix + title.lowercased())")
+        return Constants.kUrlPrefix + title.lowercased()
+    }
+
+    func clearDataArr(){
+        self.dataArr = []
+    }
+
 }
 

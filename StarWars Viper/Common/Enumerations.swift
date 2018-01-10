@@ -17,7 +17,7 @@ enum NetworkError:Error{
 }
 
 //associative type enum for plural
-//enum StructType{
+//enum StructType:String{
 //    case People
 //    case Planets
 //    case Starships
@@ -25,13 +25,12 @@ enum NetworkError:Error{
 //    case Films
 //    case Species
 //    
-//    case Person(name:String)
-//    case Planet(name:String)
-//    case Starship(name:String)
-//    case Vehicle(name:String)
-//    case Film(title:String)
-//    case Specie(name:String)
+//    //returns your loadUrl
+//    var loadUrl: String{
+//        return kUrlPrefix + self.rawValue.lowercased()
+//    }
 //}
+
 
 enum RetSingleType {
     case Person(Person)

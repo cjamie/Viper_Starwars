@@ -9,6 +9,5 @@
 import UIKit
 
 class Constants{
-
-    
+    static let kUrlPrefix = "https://swapi.co/api/"
 }
