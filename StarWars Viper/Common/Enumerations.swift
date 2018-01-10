@@ -92,22 +92,21 @@ enum RetStructType: retStructProtocol{
     case Species1(Species)
     
     var myArr:[RetSingleType]{
-        var returnData = [RetSingleType]()
         switch self{
         case .Films1(let x):
-            returnData.append(contentsOf: x.results.map{RetSingleType.Film($0)})
+            return x.results.map{RetSingleType.Film($0)}
+//            returnData.append(contentsOf: x.results.map{RetSingleType.Film($0)})
         case .People1(let x):
-            returnData.append(contentsOf: x.results.map{RetSingleType.Person($0)})
+            return x.results.map{RetSingleType.Person($0)}
         case .Planets1(let x):
-            returnData.append(contentsOf: x.results.map{RetSingleType.Planet($0)})
+            return x.results.map{RetSingleType.Planet($0)}
         case .Starships1(let x):
-            returnData.append(contentsOf: x.results.map{RetSingleType.Starship($0)})
+            return x.results.map{RetSingleType.Starship($0)}
         case .Species1(let x):
-            returnData.append(contentsOf: x.results.map{RetSingleType.Specie($0)})
+            return x.results.map{RetSingleType.Specie($0)}
         case .Vehicles1(let x):
-            returnData.append(contentsOf: x.results.map{RetSingleType.Vehicle($0)})
+            return x.results.map{RetSingleType.Vehicle($0)}
         }
-        return returnData
     }
     
     var myNext: String?{
