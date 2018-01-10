@@ -57,7 +57,7 @@ class Networking {
     
     static func downloadImage(type: RetSingleType, completion: @escaping(UIImage?, Error?)->() ){
         let tempURL = type.Description
-        print("downloading image                                                                                                                               with url \(tempURL)")
+        print("downloading image with url \(tempURL)")
         guard let uurl = URL(string: tempURL) else {return}
         let imageSession = URLSession.shared
         imageSession.invalidateAndCancel()

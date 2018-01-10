@@ -19,6 +19,5 @@ protocol ViewModelDelegate:class{
     
     func changeDataArr(with url:String)
     func generateLoadUrl(with title:String)->String
-
     
 }

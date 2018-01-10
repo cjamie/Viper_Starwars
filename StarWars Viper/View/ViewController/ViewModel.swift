@@ -67,11 +67,19 @@ extension ViewModel: ViewModelDelegate{
         return dataArr.count
     }
     
-//    func changeDataArr(to data:[RetSingleType]){
-//        self.dataArr = data
-//        viewController?.reloadData()// is this necessary?
+
+    //neat trick for generating dynamic URL for networking function.
+    //reference:https://code.tutsplus.com/tutorials/put-your-view-controllers-on-a-diet-with-mvvm--cms-29473
+//    enum API{
+//        static let baseURL = URL(string: Constants.kUrlPrefix)
+//        static var requestURL: URL{
+//            return baseURL?.appendingPathComponent(title.lowercased())
+//        }
 //    }
 //
+    
+    
+    
     func generateLoadUrl(with title:String)->String{
         print("generate load url \(Constants.kUrlPrefix + title.lowercased())")
         return Constants.kUrlPrefix + title.lowercased()
@@ -79,7 +87,11 @@ extension ViewModel: ViewModelDelegate{
 
     func clearDataArr(){
         self.dataArr = []
+
     }
 
 }
+
+
+
 

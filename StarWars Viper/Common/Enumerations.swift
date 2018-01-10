@@ -16,21 +16,23 @@ enum NetworkError:Error{
     case invalidImage
 }
 
-//associative type enum for plural
-//enum StructType:String{
-//    case People
-//    case Planets
-//    case Starships
-//    case Vehicles
-//    case Films
-//    case Species
-//    
-//    //returns your loadUrl
-//    var loadUrl: String{
-//        return kUrlPrefix + self.rawValue.lowercased()
-//    }
-//}
+extension NetworkError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .noResponse:
+            return "Error: no response"
+        case .responseError(let errCode):
+            return "Error: non-200 status code! It is \(errCode)"
+        case .noData:
+            return "Error: you have no data"
+        case .couldNotParseData:
+            return "Error: unable to parse your json!"
+        case .invalidImage:
+            return "Error: your data is not an image"
 
+        }
+    }
+}
 
 enum RetSingleType {
     case Person(Person)
@@ -58,6 +60,8 @@ enum RetSingleType {
         }
     }
     
+    
+    //there should be a way to simplify this
     var name: String{
         switch self {
         case .Person(let x):

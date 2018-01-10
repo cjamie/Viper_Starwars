@@ -28,9 +28,7 @@ class ViewController: UIViewController{
         
         print("VDL n")
         self.viewModel = ViewModel(self) //closes the loop
-//        viewModel?.getAllObjects(curr: "https://swapi.co/api/planets")
-        viewModel?.getAllObjects(curr: "https://swapi.co/api/starships", completion: {
-//            self.reloadData()
+        viewModel?.getAllObjects(curr: "https://swapi.co/api/people", completion: {
         })
     }
     
@@ -84,14 +82,8 @@ typealias TabBarFunctions = ViewController
 extension TabBarFunctions: UITabBarDelegate{
     //reload the tableview with new viewmodel content.
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard let tempURL = self.viewModel?.generateLoadUrl(with: item.title!) else{return}
+        guard let itemTitle = item.title else{return}
+        guard let tempURL = self.viewModel?.generateLoadUrl(with: itemTitle) else{return}
         self.viewModel?.changeDataArr(with: tempURL)
-//        viewModel?.getAllObjects(curr: tempURL, completion: {
-//            print("tabBar call complete")
-//            self.reloadData()
-//        })
-        //        self.viewModel?.changeDataArr(to: )
-        
-//        print(item.title)
     }
 }
