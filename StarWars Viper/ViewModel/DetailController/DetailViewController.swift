@@ -10,11 +10,13 @@ import UIKit
 
 
 class DetailViewController: UIViewController, DetailViewControllerDelegate{
-//    @IBOutlet weak var myImage: UIImageView!
-//    @IBOutlet weak var myLabel: UILabel!
+
+    @IBOutlet weak var detailLabel1: UILabel!
+    @IBOutlet weak var detailLabel2: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
+    
     var detailViewModel: DetailViewModelDelegate?
-    
-    
+
     override func viewDidLoad() {
         self.detailViewModel = DetailViewModel(self)
         print("in Detail VDL")

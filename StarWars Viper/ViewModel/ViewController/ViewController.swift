@@ -76,7 +76,6 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
         guard let tempIndex = self.tableView.indexPathForSelectedRow?.row else {return}
         guard let tempObj = self.viewModel?.getObject(by: tempIndex) else {return}
         print("row selected \(tempIndex) with tempObj")
-        print(tempObj)
         detailVC.detailViewModel?.setObject(tempObj)
     }
 }

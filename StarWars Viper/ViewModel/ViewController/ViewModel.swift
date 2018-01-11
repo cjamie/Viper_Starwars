@@ -56,6 +56,7 @@ extension ViewModel: ViewModelDelegate{
             }
             print("load next object...")
             self?.getAllObjects(curr: nextLoad, completion: {})
+            
         }
     }
 
