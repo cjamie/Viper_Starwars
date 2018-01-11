@@ -33,6 +33,14 @@
 		8472715720032B9E00217FA8 /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715620032B9E00217FA8 /* ViewModelDelegate.swift */; };
 		8472715920033B3500217FA8 /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715820033B3500217FA8 /* ViewControllerDelegate.swift */; };
 		8472715C20035A0700217FA8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472715B20035A0700217FA8 /* DetailViewModel.swift */; };
+		847272782007141B00217FA8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847272772007141B00217FA8 /* Person.swift */; };
+		8472727A2007142D00217FA8 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847272792007142D00217FA8 /* Planet.swift */; };
+		8472727C2007144A00217FA8 /* Starship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472727B2007144A00217FA8 /* Starship.swift */; };
+		8472727E2007147800217FA8 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8472727D2007147800217FA8 /* Vehicle.swift */; };
+		84727282200714FA00217FA8 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84727281200714FA00217FA8 /* Film.swift */; };
+		847272842007150400217FA8 /* Specie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847272832007150400217FA8 /* Specie.swift */; };
+		84727286200721EF00217FA8 /* DetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84727285200721EF00217FA8 /* DetailViewModelDelegate.swift */; };
+		847272882007220900217FA8 /* DetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847272872007220900217FA8 /* DetailViewControllerDelegate.swift */; };
 		F09C037DE94006445598C2E3 /* Pods_StarWars_ViperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */; };
 		FDC5757CB98E34E5F9FB669C /* Pods_StarWars_Viper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +90,14 @@
 		8472715620032B9E00217FA8 /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
 		8472715820033B3500217FA8 /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
 		8472715B20035A0700217FA8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		847272772007141B00217FA8 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		847272792007142D00217FA8 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		8472727B2007144A00217FA8 /* Starship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starship.swift; sourceTree = "<group>"; };
+		8472727D2007147800217FA8 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		84727281200714FA00217FA8 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		847272832007150400217FA8 /* Specie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specie.swift; sourceTree = "<group>"; };
+		84727285200721EF00217FA8 /* DetailViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelDelegate.swift; sourceTree = "<group>"; };
+		847272872007220900217FA8 /* DetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerDelegate.swift; sourceTree = "<group>"; };
 		850CDE47DF5B795D084F89E3 /* Pods_StarWars_ViperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_ViperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F3483D96B9BB75DB1DE84A8 /* Pods_StarWars_Viper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWars_Viper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -212,12 +228,8 @@
 		847271452001BA0000217FA8 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				847271302000C70D00217FA8 /* People.swift */,
-				847271322000C72800217FA8 /* Planets.swift */,
-				847271342000C74D00217FA8 /* Starships.swift */,
-				847271362000C76300217FA8 /* Vehicles.swift */,
-				847271382000C77900217FA8 /* Films.swift */,
-				8472713A2000C79800217FA8 /* Species.swift */,
+				84727280200714BA00217FA8 /* Singular */,
+				8472727F2007149C00217FA8 /* Plural */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -239,6 +251,8 @@
 			children = (
 				847271482001F52500217FA8 /* DetailViewController.swift */,
 				8472715B20035A0700217FA8 /* DetailViewModel.swift */,
+				84727285200721EF00217FA8 /* DetailViewModelDelegate.swift */,
+				847272872007220900217FA8 /* DetailViewControllerDelegate.swift */,
 			);
 			path = DetailController;
 			sourceTree = "<group>";
@@ -249,6 +263,32 @@
 				8472712D2000C55B00217FA8 /* Networking.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		8472727F2007149C00217FA8 /* Plural */ = {
+			isa = PBXGroup;
+			children = (
+				847271302000C70D00217FA8 /* People.swift */,
+				847271322000C72800217FA8 /* Planets.swift */,
+				847271342000C74D00217FA8 /* Starships.swift */,
+				847271362000C76300217FA8 /* Vehicles.swift */,
+				847271382000C77900217FA8 /* Films.swift */,
+				8472713A2000C79800217FA8 /* Species.swift */,
+			);
+			path = Plural;
+			sourceTree = "<group>";
+		};
+		84727280200714BA00217FA8 /* Singular */ = {
+			isa = PBXGroup;
+			children = (
+				8472727B2007144A00217FA8 /* Starship.swift */,
+				847272772007141B00217FA8 /* Person.swift */,
+				847272792007142D00217FA8 /* Planet.swift */,
+				8472727D2007147800217FA8 /* Vehicle.swift */,
+				84727281200714FA00217FA8 /* Film.swift */,
+				847272832007150400217FA8 /* Specie.swift */,
+			);
+			path = Singular;
 			sourceTree = "<group>";
 		};
 		DC79721DA3B9D1BD323C2515 /* Frameworks */ = {
@@ -479,23 +519,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8472727E2007147800217FA8 /* Vehicle.swift in Sources */,
 				8472710D2000C4C600217FA8 /* ViewController.swift in Sources */,
 				8472714B2001F77E00217FA8 /* Interactor.swift in Sources */,
 				8472713D2000D8BD00217FA8 /* Constants.swift in Sources */,
+				8472727A2007142D00217FA8 /* Planet.swift in Sources */,
 				847271132000C4C600217FA8 /* StarWars_Viper.xcdatamodeld in Sources */,
 				8472710B2000C4C600217FA8 /* AppDelegate.swift in Sources */,
+				84727286200721EF00217FA8 /* DetailViewModelDelegate.swift in Sources */,
 				847271442001B2FF00217FA8 /* Enumerations.swift in Sources */,
 				8472712E2000C55B00217FA8 /* Networking.swift in Sources */,
 				847271532002F2A100217FA8 /* ViewModel.swift in Sources */,
 				847271372000C76300217FA8 /* Vehicles.swift in Sources */,
+				847272782007141B00217FA8 /* Person.swift in Sources */,
+				847272842007150400217FA8 /* Specie.swift in Sources */,
+				8472727C2007144A00217FA8 /* Starship.swift in Sources */,
 				8472715C20035A0700217FA8 /* DetailViewModel.swift in Sources */,
 				8472714D2001FEB400217FA8 /* Router.swift in Sources */,
 				847271392000C77900217FA8 /* Films.swift in Sources */,
+				84727282200714FA00217FA8 /* Film.swift in Sources */,
 				8472715920033B3500217FA8 /* ViewControllerDelegate.swift in Sources */,
 				8472714F20021FA600217FA8 /* CustomObjectCell.swift in Sources */,
 				847271312000C70D00217FA8 /* People.swift in Sources */,
 				8472715720032B9E00217FA8 /* ViewModelDelegate.swift in Sources */,
 				847271332000C72800217FA8 /* Planets.swift in Sources */,
+				847272882007220900217FA8 /* DetailViewControllerDelegate.swift in Sources */,
 				847271472001DF1800217FA8 /* Presenter.swift in Sources */,
 				8472713B2000C79800217FA8 /* Species.swift in Sources */,
 				847271512002C39500217FA8 /* GlobalCache.swift in Sources */,

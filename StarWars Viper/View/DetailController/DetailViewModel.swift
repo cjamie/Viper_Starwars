@@ -8,6 +8,14 @@
 
 import Foundation
 
-class DetailViewModel{
+class DetailViewModel:DetailViewModelDelegate{
+    var detailViewController: DetailViewControllerDelegate?
+    var myStruct: RetSingleType
+    
+    
+    init(_ delegate:DetailViewControllerDelegate){
+        self.detailViewController = delegate
+    }
     
 }
+

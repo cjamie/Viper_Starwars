@@ -12,12 +12,6 @@ import UIKit
  -passes user events to the presenter
  */
 
-//class-bound protocol to define my view input methods
-protocol ViewControllerInterface: class {
-    func showCellNames(data:[RetSingleType])
-}
-
-
 class ViewController: UIViewController{
     var viewModel: ViewModelDelegate?
     @IBOutlet weak var tableView: UITableView!
@@ -28,11 +22,9 @@ class ViewController: UIViewController{
         
         print("VDL n")
         self.viewModel = ViewModel(self) //closes the loop
-        viewModel?.getAllObjects(curr: "https://swapi.co/api/people", completion: {
-        })
+        viewModel?.getAllObjects(curr: "https://swapi.co/api/people", completion: {})
+        
     }
-    
-    
 }
 
 
@@ -64,11 +56,37 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
     //segue to details view controller.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO: instantiate your detail view controller. dependency injection.
+        performSegue(withIdentifier: "<#T##String#>", sender: <#T##Any?#>)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+//        if segue.identifier == "friendsToAddFriend",
+//            let destinationViewController = segue.destination as? FriendViewController {
+//            destinationViewController.viewModel = AddFriendViewModel()
+//            destinationViewController.updateFriends = { [weak self] in
+//                self?.viewModel.getFriends()
+//            }
+//        }
+        
+        guard let detailVC = segue.destination as? DetailViewController else {return}
+
+    //        detailVC.detailViewModel = DetailViewModel(self)
+        detailVC.updateMyObject = {
+            [weak self] in
+            self?.viewModel?.getObject(by: 3)
+        }
+    }
+    
+
+    
+    
+    
 }
 
 extension ViewController:ViewControllerDelegate{

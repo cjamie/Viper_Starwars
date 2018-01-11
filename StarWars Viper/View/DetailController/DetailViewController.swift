@@ -6,10 +6,19 @@
 //  Copyright © 2018 Jamie Chu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
-class DetailViewController{
-//    @IBOutlet weak var myImage: UIImageView!
-//    @IBOutlet weak var myLabel: UILabel!
+class DetailViewController: UIViewController, DetailViewControllerDelegate{
+    @IBOutlet weak var myImage: UIImageView!
+    @IBOutlet weak var myLabel: UILabel!
+    var detailViewModel: DetailViewModelDelegate?
+    var updateMyObject: (() ->())?
+    
+    
+    override func viewDidLoad() {
+        self.detailViewModel = DetailViewModel(self)
+        self.updateMyObject
+    }
+    
 }

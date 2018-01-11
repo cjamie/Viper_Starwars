@@ -19,6 +19,7 @@ class ViewModel {
     }
 }
 
+
 //we use enum functions and properties to avoid switch statements.
 
 extension ViewModel: ViewModelDelegate{
@@ -67,9 +68,12 @@ extension ViewModel: ViewModelDelegate{
         return dataArr.count
     }
     
+    
+    
 
     //neat trick for generating dynamic URL for networking function.
     //reference:https://code.tutsplus.com/tutorials/put-your-view-controllers-on-a-diet-with-mvvm--cms-29473
+    
 //    enum API{
 //        static let baseURL = URL(string: Constants.kUrlPrefix)
 //        static var requestURL: URL{
@@ -77,8 +81,6 @@ extension ViewModel: ViewModelDelegate{
 //        }
 //    }
 //
-    
-    
     
     func generateLoadUrl(with title:String)->String{
         print("generate load url \(Constants.kUrlPrefix + title.lowercased())")

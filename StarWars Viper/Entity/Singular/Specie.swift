@@ -1,19 +1,12 @@
 //
-//  Species.swift
+//  Specie.swift
 //  StarWars Viper
 //
-//  Created by Admin on 1/6/18.
+//  Created by Admin on 1/10/18.
 //  Copyright © 2018 Jamie Chu. All rights reserved.
 //
 
 import Foundation
-
-struct Species:Codable{
-    var count:Int
-    var next: String?
-    var previous:String?
-    var results: [Specie]
-}
 
 struct Specie:Codable{
     var name:String
@@ -24,7 +17,7 @@ struct Specie:Codable{
     var hair_colors:String
     var eye_colors:String
     var average_lifespan:String
-    var homeworld:String? 
+    var homeworld:String?
     var language:String
     var people: [String]
     var films:[String]
@@ -32,4 +25,3 @@ struct Specie:Codable{
     var edited:String
     var url:String
 }
-
