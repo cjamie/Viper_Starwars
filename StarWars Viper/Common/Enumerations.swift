@@ -43,7 +43,7 @@ enum RetSingleType {
     case Specie(Specie)
  
     //getting your url string for images for networking calls. 
-    var Description: String{
+    var typeURL: String{
         switch self {
         case .Person(let x):
             return "https://raw.githubusercontent.com/sbassett1/swImages/master/\(x.name.replacingOccurrences(of: "/", with: "")).png".replacingOccurrences(of: " ", with: "").folding(options: .diacriticInsensitive, locale: .current)

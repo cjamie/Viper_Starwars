@@ -10,8 +10,8 @@ import Foundation
 
 class DetailViewModel:DetailViewModelDelegate{
     var detailViewController: DetailViewControllerDelegate?
-    var myStruct: RetSingleType?
-    
+    //public property that may only be set via functions
+    public private(set) var myStruct: RetSingleType?
     
     init(_ delegate:DetailViewControllerDelegate){
         self.detailViewController = delegate
