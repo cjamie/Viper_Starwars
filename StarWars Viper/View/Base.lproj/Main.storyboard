@@ -99,6 +99,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3Ax-X0-XId"/>
                     <connections>
+                        <outlet property="tabBar" destination="wJl-Hz-PsG" id="zpK-PO-iR8"/>
                         <outlet property="tableView" destination="ROS-VE-QxS" id="ttq-cv-yE6"/>
                         <segue destination="d2Z-Jk-y54" kind="show" identifier="toDetailView" id="8Ve-sy-gST"/>
                     </connections>

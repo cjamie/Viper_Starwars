@@ -10,12 +10,17 @@ import Foundation
 
 class DetailViewModel:DetailViewModelDelegate{
     var detailViewController: DetailViewControllerDelegate?
-    var myStruct: RetSingleType
+    var myStruct: RetSingleType?
     
     
     init(_ delegate:DetailViewControllerDelegate){
         self.detailViewController = delegate
     }
-    
+ 
+    func setObject(_ myObj: RetSingleType){
+        print("setting object in detailViewModel")
+        print(myObj)
+        self.myStruct = myObj
+    }
 }
 

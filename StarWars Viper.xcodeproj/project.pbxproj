@@ -160,11 +160,11 @@
 				847271422001B2AC00217FA8 /* Common */,
 				847271412001AEFF00217FA8 /* Presenter */,
 				847271402001AEE300217FA8 /* Interacter */,
-				8472713F2001AEDB00217FA8 /* View */,
+				8472713F2001AEDB00217FA8 /* ViewModel */,
+				847272892007408300217FA8 /* View */,
 				8472713E2001AE4400217FA8 /* Router */,
 				8472710A2000C4C600217FA8 /* AppDelegate.swift */,
 				8472715A200359D600217FA8 /* Service */,
-				8472710E2000C4C600217FA8 /* Main.storyboard */,
 				847271142000C4C600217FA8 /* Assets.xcassets */,
 				847271162000C4C600217FA8 /* LaunchScreen.storyboard */,
 				847271192000C4C600217FA8 /* Info.plist */,
@@ -190,13 +190,13 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		8472713F2001AEDB00217FA8 /* View */ = {
+		8472713F2001AEDB00217FA8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				847271542003081700217FA8 /* ViewController */,
 				847271552003083200217FA8 /* DetailController */,
 			);
-			path = View;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		847271402001AEE300217FA8 /* Interacter */ = {
@@ -289,6 +289,14 @@
 				847272832007150400217FA8 /* Specie.swift */,
 			);
 			path = Singular;
+			sourceTree = "<group>";
+		};
+		847272892007408300217FA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8472710E2000C4C600217FA8 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DC79721DA3B9D1BD323C2515 /* Frameworks */ = {

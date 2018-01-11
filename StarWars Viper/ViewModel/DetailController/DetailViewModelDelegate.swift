@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DetailViewModelDelegate:class{
-    
+    func setObject(_ obj: RetSingleType)
 }

@@ -26,7 +26,7 @@ class ObjectPresenter: ObjectViewModule{
     //1) Weak reference to the View
     //2) Strong reference to the Interactor interface
     //3) Reference to the wireframe
-    weak var view: ViewControllerInterface?
+//    weak var view: ViewControllerInterface?
     var interactor: InteractorInput?
     var router: Router?
 

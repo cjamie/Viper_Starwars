@@ -15,6 +15,7 @@ import UIKit
 class ViewController: UIViewController{
     var viewModel: ViewModelDelegate?
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tabBar: UITabBar!
     
     //once it has loaded, it will send a request to presenter to load the view.
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ typealias privateTableViewFunctions = ViewController
 extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         guard let tempCount = viewModel?.getObjectArrayCount() else{return 0}
         return tempCount
     }
@@ -41,7 +42,7 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "customObjectCell") as? CustomObjectCell else {
             fatalError("No cell in tableView")
-//            return UITableViewCell
+            //            return UITableViewCell
         }
         
         print("inTableViewCell")
@@ -52,11 +53,11 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
         cell.labelText.text = viewModel?.getObjectNames(for: indexPath.row)
         return cell
     }
-
+    
     //segue to details view controller.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO: instantiate your detail view controller. dependency injection.
-        performSegue(withIdentifier: "<#T##String#>", sender: <#T##Any?#>)
+        performSegue(withIdentifier: "toDetailView", sender: self)
         
     }
     
@@ -64,30 +65,31 @@ extension privateTableViewFunctions: UITableViewDataSource, UITableViewDelegate{
         return 200
     }
     
+    //should probably move this to VM. 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-//        if segue.identifier == "friendsToAddFriend",
-//            let destinationViewController = segue.destination as? FriendViewController {
-//            destinationViewController.viewModel = AddFriendViewModel()
-//            destinationViewController.updateFriends = { [weak self] in
-//                self?.viewModel.getFriends()
-//            }
-//        }
+        print("preparing for segue")
+        //        if segue.identifier == "friendsToAddFriend",
+        //            let destinationViewController = segue.destination as? FriendViewController {
+        //            destinationViewController.viewModel = AddFriendViewModel()
+        //            destinationViewController.updateFriends = { [weak self] in
+        //                self?.viewModel.getFriends()
+        //            }
+        //        }
         
         guard let detailVC = segue.destination as? DetailViewController else {return}
-
-    //        detailVC.detailViewModel = DetailViewModel(self)
+        detailVC.detailViewModel = DetailViewModel(detailVC)
         detailVC.updateMyObject = {
             [weak self] in
-            self?.viewModel?.getObject(by: 3)
+            guard let tempIndex = self?.tableView.indexPathForSelectedRow?.row else {return}
+            
+            guard let tempObj = self?.viewModel?.getObject(by: tempIndex) else {return}
+            print("row selected")
+            detailVC.detailViewModel?.setObject(tempObj)
         }
     }
+}
     
 
-    
-    
-    
-}
 
 extension ViewController:ViewControllerDelegate{
     func reloadData() {
@@ -98,10 +100,15 @@ extension ViewController:ViewControllerDelegate{
 
 typealias TabBarFunctions = ViewController
 extension TabBarFunctions: UITabBarDelegate{
-    //reload the tableview with new viewmodel content.
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+    //TODO: reload data only when current title changes. 
+    func tabBar(_ tabBar2: UITabBar, didSelect item: UITabBarItem) {
+//        print("current title is: \(tabBar.selectedItem?.title ?? "")")
+//        print("current title is: \(tabBar2.selectedItem?.title ?? "")")
+
         guard let itemTitle = item.title else{return}
         guard let tempURL = self.viewModel?.generateLoadUrl(with: itemTitle) else{return}
         self.viewModel?.changeDataArr(with: tempURL)
+//        print("current title is: \(tabBar.selectedItem?.title ?? "")")
+//        print("current title now: \(tabBar2.selectedItem?.title ?? "")")
     }
 }

@@ -18,7 +18,8 @@ class DetailViewController: UIViewController, DetailViewControllerDelegate{
     
     override func viewDidLoad() {
         self.detailViewModel = DetailViewModel(self)
-        self.updateMyObject
+        print("in Detail VDL")
+//        self.updateMyObject
     }
     
 }
